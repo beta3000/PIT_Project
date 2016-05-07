@@ -79,7 +79,6 @@ public class PerfilAction extends ActionSupport {
     }
 
     public String buscarPerfilPorID() {
-        int perfil = -1;
         service = new PerfilServiceImpl();
         try {
             for (PerfilBean x : service.listarPerfil()

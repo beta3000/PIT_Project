@@ -23,7 +23,7 @@
         INSERT INTO PERFIL
         VALUES(NULL, #{nombrePerfil}, #{descripcionPerfil})
     </insert>
-    <select id="idSelectTodos" resultType="perfilBeanIbatis">
+    <select id="idSelectTodosPerfil" resultType="perfilBeanIbatis">
         SELECT
         idPerfil as idPerfil,
         nombrePerfil as nombrePerfil,

@@ -8,8 +8,8 @@ public class UsuarioBean {
     private String fechaRegistroUsuario;
     private String emailUsuario;
     private String passwordUsuario;
-    private String estadoUsuario;
     private PerfilBean perfilUsuario;
+    private int idPerfil;
 
     public UsuarioBean() {
     }
@@ -70,11 +70,11 @@ public class UsuarioBean {
         this.perfilUsuario = perfilUsuario;
     }
 
-    public String getEstadoUsuario() {
-        return estadoUsuario;
+    public int getIdPerfil() {
+        return idPerfil;
     }
 
-    public void setEstadoUsuario(String estadoUsuario) {
-        this.estadoUsuario = estadoUsuario;
+    public void setIdPerfil(int idPerfil) {
+        this.idPerfil = idPerfil;
     }
 }

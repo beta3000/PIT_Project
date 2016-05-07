@@ -7,14 +7,12 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by RUBITO on 07/05/2016.
- */
 public class MySqlUsuarioDAO implements UsuarioDAO {
 
-    SqlSessionFactory sqlMapper = null;
+    private SqlSessionFactory sqlMapper = null;
 
     {
         String archivo = "ConfiguracionIbatis.xml";
@@ -29,30 +27,57 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
     @Override
     public int inserta(UsuarioBean bean) throws Exception {
         int insertado = -1;
-        SqlSession session = sqlMapper.openSession();
-        try {
+        try (SqlSession session = sqlMapper.openSession()) {
             insertado = session.insert("idInsertaUsuario", bean);
             session.commit();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            session.close();
         }
         return insertado;
     }
 
     @Override
     public int elimina(int id) throws Exception {
-        return 0;
+        int eliminado = -1;
+        SqlSession session = sqlMapper.openSession();
+        try {
+            eliminado = session.delete("idDeleteUsuario", id);
+            session.commit();
+        } catch (Exception e) {
+            session.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return eliminado;
     }
 
     @Override
     public int actualiza(UsuarioBean bean) throws Exception {
-        return 0;
+        int actualizado = -1;
+        SqlSession session = sqlMapper.openSession();
+        try {
+            actualizado = session.update("idUpdateUsuario", bean);
+            session.commit();
+        } catch (Exception e) {
+            session.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return actualizado;
     }
 
     @Override
     public List<UsuarioBean> obtenTodo() throws Exception {
-        return null;
+        List<UsuarioBean> lista = new ArrayList<>();
+        try (SqlSession session = sqlMapper.openSession()) {
+            lista = session.selectList("idSelectTodosUsuario");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return lista;
     }
 }

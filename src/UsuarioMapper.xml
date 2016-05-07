@@ -22,9 +22,34 @@
     <insert id="idInsertaUsuario" parameterType="usuarioBeanIbatis">
         INSERT INTO USUARIO
         VALUES(NULL, #{nombreUsuario}, #{apellidoUsuario}, #{fechaRegistroUsuario}, #{emailUsuario}, #{passwordUsuario},
-        #{estadoUsuario}, #{perfilUsuario.idPerfil})
+        #{perfilUsuario.idPerfil})
     </insert>
 
+    <select id="idSelectTodosUsuario" resultType="usuarioBeanIbatis">
+        SELECT
+          idUsuario as idUsuario,
+          nombreUsuario as nombreUsuario,
+          apellidoUsuario as apellidoUsuario,
+          fechaRegistroUsuario as fechaRegistroUsuario,
+          emailUsuario as emailUsuario,
+          passwordUsuario as passwordUsuario,
+          idPerfil as idPerfil
+        FROM USUARIO
+    </select>
+
+    <delete id="idDeleteUsuario" parameterType="int">
+        DELETE FROM USUARIO WHERE idUsuario = #{idUsuario}
+    </delete>
+
+    <update id="idUpdateUsuario" parameterType="usuarioBeanIbatis">
+        UPDATE USUARIO SET
+        nombreUsuario = #{nombreUsuario},
+        apellidoUsuario = #{apellidoUsuario},
+        emailUsuario = #{emailUsuario},
+        passwordUsuario = #{passwordUsuario},
+        idPerfil = #{perfilUsuario.idPerfil}
+        WHERE idUsuario = #{idUsuario}
+    </update>
 </mapper>
 
 

@@ -50,9 +50,32 @@
 
         <action name="registrarUsuario" class="com.mycompany.ws.action.UsuarioAction"
                 method="registrarUsuario">
-            <result name="success" type="redirectAction">cargarRegistroUsuario</result>
+            <result name="success" type="redirectAction">listarUsuario</result>
             <result name="error">/error.jsp</result>
         </action>
 
+        <action name="listarUsuario" class="com.mycompany.ws.action.UsuarioAction"
+                method="listarUsuario">
+            <result name="success">/usuarios.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="eliminarUsuario" class="com.mycompany.ws.action.UsuarioAction"
+                method="eliminarUsuario">
+            <result name="success" type="redirectAction">listarUsuario</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="buscarUsuarioPorID" class="com.mycompany.ws.action.UsuarioAction"
+                method="buscarUsuarioPorId">
+            <result name="success">/actualizarUsuario.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="actualizarUsuario" class="com.mycompany.ws.action.UsuarioAction"
+                method="actualizarUsuario">
+            <result name="success" type="redirectAction">listarUsuario</result>
+            <result name="error">/error.jsp</result>
+        </action>
     </package>
 </struts>

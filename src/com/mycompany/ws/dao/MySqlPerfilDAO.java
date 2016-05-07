@@ -81,7 +81,7 @@ public class MySqlPerfilDAO implements PerfilDAO {
     public List<PerfilBean> obtenTodo() throws Exception {
         List<PerfilBean> lista = new ArrayList<>();
         try (SqlSession session = sqlMapper.openSession()) {
-            lista = session.selectList("idSelectTodos");
+            lista = session.selectList("idSelectTodosPerfil");
 
         } catch (Exception e) {
             e.printStackTrace();
