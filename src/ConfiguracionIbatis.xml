@@ -13,6 +13,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias 
 			alias="perfilBeanIbatis"
 			type="com.mycompany.ws.bean.PerfilBean" />
+		<typeAlias
+				alias="usuarioBeanIbatis"
+				type="com.mycompany.ws.bean.UsuarioBean"/>
 	</typeAliases> 
 
 	<environments default="development">
@@ -32,6 +35,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!--  Registro de los mappers  -->
 	<mappers>
 		<mapper resource="PerfilMapper.xml" />
+		<mapper resource="UsuarioMapper.xml"/>
 	</mappers>
 </configuration>
 

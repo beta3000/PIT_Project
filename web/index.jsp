@@ -9,13 +9,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>Inserta perfil</title>
+    <title>Index</title>
   </head>
   <body>
-    <form method="post" action="registrarPerfil.action">
-      nombre Perfil<input type="text" name="perfilBean.nombrePerfil"><br>
-      descripción Perfil<input type="text" name="perfilBean.descripcionPerfil">
-      <input type="submit"  value="REGISTRAR">
-    </form>
+
   </body>
 </html>

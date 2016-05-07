@@ -6,7 +6,10 @@
 
 <struts>
     <constant name="struts.devMode" value="true"/>
-    <package name="pit" extends="struts-default">
+
+
+    <package name="pit_perfil" extends="struts-default">
+        <!--PERFIL-->
         <action name="registrarPerfil" class="com.mycompany.ws.action.PerfilAction"
         method="registrarPerfil">
             <result name="input">/registrarPerfil.jsp</result>
@@ -35,6 +38,13 @@
         <action name="actualizarPerfil" class="com.mycompany.ws.action.PerfilAction"
         method="actualizarPerfil">
             <result name="success" type="redirectAction">listarPerfil</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <!--USUARIO-->
+        <action name="cargarRegistroUsuario" class="com.mycompany.ws.action.UsuarioAction"
+                method="cargarRegistroUsuario">
+            <result name="success">/registrarUsuario.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
     </package>

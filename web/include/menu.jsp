@@ -50,7 +50,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Ver/Buscar</a></li>
-                            <li><a href="#">Registrar</a></li>
+                            <li><a href="<s:url action="cargarRegistroUsuario"></s:url>">Registrar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

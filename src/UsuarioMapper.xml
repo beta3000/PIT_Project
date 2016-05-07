@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+	Paso2: se registran los SQL que se van a usar 
+	en la capa de datos
+	
+	El SQL que se escribe no es un SQL puro,
+	el que se envia directamente la BD, sino que
+	sufre algunos cambios
+	
+	id : es el nombre con que se va llamar al SQL
+	resultType: tipo de dato de salida del método en el dao
+	paramType: tipo de dato de entrada del método en el dao
+	
+	#{XXXXXX}: XXXXXX es un atributo del bean
+ -->
+<mapper namespace="usuarioMapper">
+
+    <insert id="idInsertaUsuario" parameterType="usuarioBeanIbatis">
+        INSERT INTO USUARIO
+        VALUES(NULL, #{nombreUsuario}, #{apellidoUsuario}, #{fechaRegistroUsuario}, #{emailUsuario}, #{passwordUsuario}, #{perfilUsuario.idPerfil})
+    </insert>
+
+</mapper>
+
+
+
+
+
+
+
+
