@@ -19,67 +19,67 @@
     <![endif]-->
     <!-- DataTables -->
     <link rel="stylesheet" href="css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="css/jquery.dataTables_themeroller.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables_themeroller.css">
 </head>
 <body>
-    <s:include value="include/menu.jsp"/>
-    <!-- Inicio cabezera de escritorio -->
+<s:include value="include/menu.jsp"/>
+<!-- Inicio cabezera de escritorio -->
 
-    <!-- Fin cabezera de escritorio -->
-    <!-- INICIO CONTENIDO -->
-    <!-- Inicio cabezera -->
-    <div class="container">
-        <div class="row">
-            <h1 class="text-center">Perfiles</h1>
-        </div>
+<!-- Fin cabezera de escritorio -->
+<!-- INICIO CONTENIDO -->
+<!-- Inicio cabezera -->
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Perfiles</h1>
     </div>
-    <!-- Fin cabezera-->
-    <div class="container">
-        <div class="row">
-            <table id="tabla" class="table table-bordered table-hover">
-                <thead>
+</div>
+<!-- Fin cabezera-->
+<div class="container">
+    <div class="row">
+        <table id="tabla" class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Operación</th>
+            </tr>
+            </thead>
+            <s:iterator value="listaPerfil">
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Operación</th>
+                    <td><s:property value="idPerfil"/></td>
+                    <td><s:property value="nombrePerfil"/></td>
+                    <td><s:property value="descripcionPerfil"/></td>
+                    <td>
+                        <s:url action="buscarPerfilPorID" id="buscarPorID">
+                            <s:param name="perfilBean.idPerfil">
+                                <s:property value="idPerfil"/>
+                            </s:param>
+                        </s:url>
+                        <s:a href="%{buscarPorID}">
+                            <button class="btn btn-primary">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                ACTUALIZAR
+                            </button>
+                        </s:a>
+                        <s:url action="eliminarPerfil" id="eliminar">
+                            <s:param name="perfilBean.idPerfil">
+                                <s:property value="idPerfil"/>
+                            </s:param>
+                        </s:url>
+                        <s:a href="%{eliminar}">
+                            <button class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                Eliminar
+                            </button>
+                        </s:a>
+                    </td>
                 </tr>
-                </thead>
-                <s:iterator value="listaPerfil">
-                    <tr>
-                        <td><s:property value="idPerfil"/></td>
-                        <td><s:property value="nombrePerfil"/></td>
-                        <td><s:property value="descripcionPerfil"/></td>
-                        <td>
-                            <s:url action="buscarPerfilPorID" id="buscarPorID">
-                                <s:param name="perfilBean.idPerfil">
-                                    <s:property value="idPerfil"/>
-                                </s:param>
-                            </s:url>
-                            <s:a href="%{buscarPorID}">
-                                <button class="btn btn-primary">
-                                    <span class="glyphicon glyphicon-edit"></span>
-                                    ACTUALIZAR
-                                </button>
-                            </s:a>
-                            <s:url action="eliminarPerfil" id="eliminar">
-                                <s:param name="perfilBean.idPerfil">
-                                    <s:property value="idPerfil"/>
-                                </s:param>
-                            </s:url>
-                            <s:a href="%{eliminar}">
-                                <button class="btn btn-danger">
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                    Eliminar
-                                </button>
-                            </s:a>
-                        </td>
-                    </tr>
-                </s:iterator>
-            </table>
-        </div>
+            </s:iterator>
+        </table>
     </div>
-    <!-- FIN CONTENIDO -->
+</div>
+<!-- FIN CONTENIDO -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-1.12.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

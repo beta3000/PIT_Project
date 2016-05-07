@@ -11,32 +11,32 @@
     <package name="pit_perfil" extends="struts-default">
         <!--PERFIL-->
         <action name="registrarPerfil" class="com.mycompany.ws.action.PerfilAction"
-        method="registrarPerfil">
+                method="registrarPerfil">
             <result name="input">/registrarPerfil.jsp</result>
             <result name="success" type="redirectAction">listarPerfil</result>
             <result name="error">/registrarPerfil.jsp</result>
         </action>
 
         <action name="listarPerfil" class="com.mycompany.ws.action.PerfilAction"
-        method="listarPerfil">
+                method="listarPerfil">
             <result name="success">/perfiles.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
 
         <action name="eliminarPerfil" class="com.mycompany.ws.action.PerfilAction"
-        method="eliminarPerfil">
+                method="eliminarPerfil">
             <result name="success" type="redirectAction">listarPerfil</result>
             <result name="error">/error.jsp</result>
         </action>
 
         <action name="buscarPerfilPorID" class="com.mycompany.ws.action.PerfilAction"
-        method="buscarPerfilPorID">
+                method="buscarPerfilPorID">
             <result name="success">/actualizarPerfil.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
 
         <action name="actualizarPerfil" class="com.mycompany.ws.action.PerfilAction"
-        method="actualizarPerfil">
+                method="actualizarPerfil">
             <result name="success" type="redirectAction">listarPerfil</result>
             <result name="error">/error.jsp</result>
         </action>
@@ -47,5 +47,12 @@
             <result name="success">/registrarUsuario.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
+
+        <action name="registrarUsuario" class="com.mycompany.ws.action.UsuarioAction"
+                method="registrarUsuario">
+            <result name="success" type="redirectAction">cargarRegistroUsuario</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
     </package>
 </struts>

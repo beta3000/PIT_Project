@@ -21,7 +21,8 @@
 
     <insert id="idInsertaUsuario" parameterType="usuarioBeanIbatis">
         INSERT INTO USUARIO
-        VALUES(NULL, #{nombreUsuario}, #{apellidoUsuario}, #{fechaRegistroUsuario}, #{emailUsuario}, #{passwordUsuario}, #{perfilUsuario.idPerfil})
+        VALUES(NULL, #{nombreUsuario}, #{apellidoUsuario}, #{fechaRegistroUsuario}, #{emailUsuario}, #{passwordUsuario},
+        #{estadoUsuario}, #{perfilUsuario.idPerfil})
     </insert>
 
 </mapper>

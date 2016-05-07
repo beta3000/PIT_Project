@@ -11,12 +11,11 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by RUBITO on 03/05/2016.
- */
+
 public class MySqlPerfilDAO implements PerfilDAO {
 
-    SqlSessionFactory sqlMapper = null;
+    private SqlSessionFactory sqlMapper = null;
+
     {
         String archivo = "ConfiguracionIbatis.xml";
         try {
@@ -35,12 +34,12 @@ public class MySqlPerfilDAO implements PerfilDAO {
         int insertados = -1;
         SqlSession session = sqlMapper.openSession();
         try {
-            insertados = session.insert("idInsertaPerfil",bean);
+            insertados = session.insert("idInsertaPerfil", bean);
             session.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             session.rollback();
             e.printStackTrace();
-        }finally {
+        } finally {
             session.close();
         }
         return insertados;
@@ -51,12 +50,12 @@ public class MySqlPerfilDAO implements PerfilDAO {
         int eliminado = -1;
         SqlSession session = sqlMapper.openSession();
         try {
-            eliminado = session.delete("idDeletePerfil",id);
+            eliminado = session.delete("idDeletePerfil", id);
             session.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             session.rollback();
             e.printStackTrace();
-        }finally {
+        } finally {
             session.close();
         }
         return eliminado;
@@ -67,12 +66,12 @@ public class MySqlPerfilDAO implements PerfilDAO {
         int actualizado = -1;
         SqlSession session = sqlMapper.openSession();
         try {
-            actualizado = session.update("idUpdatePerfil",bean);
+            actualizado = session.update("idUpdatePerfil", bean);
             session.commit();
-        }catch (Exception e){
+        } catch (Exception e) {
             session.rollback();
             e.printStackTrace();
-        }finally {
+        } finally {
             session.close();
         }
         return actualizado;
@@ -81,14 +80,11 @@ public class MySqlPerfilDAO implements PerfilDAO {
     @Override
     public List<PerfilBean> obtenTodo() throws Exception {
         List<PerfilBean> lista = new ArrayList<>();
-        SqlSession session = sqlMapper.openSession();
-        try {
+        try (SqlSession session = sqlMapper.openSession()) {
             lista = session.selectList("idSelectTodos");
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            session.close();
         }
 
         return lista;

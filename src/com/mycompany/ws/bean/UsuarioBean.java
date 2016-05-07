@@ -1,8 +1,6 @@
 package com.mycompany.ws.bean;
 
-/**
- * Created by RUBITO on 03/05/2016.
- */
+
 public class UsuarioBean {
     private int idUsuario;
     private String nombreUsuario;
@@ -10,6 +8,7 @@ public class UsuarioBean {
     private String fechaRegistroUsuario;
     private String emailUsuario;
     private String passwordUsuario;
+    private String estadoUsuario;
     private PerfilBean perfilUsuario;
 
     public UsuarioBean() {
@@ -69,5 +68,13 @@ public class UsuarioBean {
 
     public void setPerfilUsuario(PerfilBean perfilUsuario) {
         this.perfilUsuario = perfilUsuario;
+    }
+
+    public String getEstadoUsuario() {
+        return estadoUsuario;
+    }
+
+    public void setEstadoUsuario(String estadoUsuario) {
+        this.estadoUsuario = estadoUsuario;
     }
 }

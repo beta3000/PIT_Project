@@ -5,12 +5,10 @@ import com.mycompany.ws.dao.MySqlPerfilDAO;
 
 import java.util.List;
 
-/**
- * Created by RUBITO on 03/05/2016.
- */
+
 public class PerfilServiceImpl implements PerfilService {
 
-    MySqlPerfilDAO dao  = new MySqlPerfilDAO();
+    private MySqlPerfilDAO dao = new MySqlPerfilDAO();
 
     @Override
     public int registrarPerfil(PerfilBean bean) throws Exception {

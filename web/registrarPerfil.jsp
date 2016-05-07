@@ -18,55 +18,58 @@
     <![endif]-->
 </head>
 <body>
-    <s:include value="include/menu.jsp"/>
-    <!-- Inicio cabezera de escritorio -->
-    <!-- Fin cabezera de escritorio -->
-    <!-- INICIO CONTENIDO -->
-    <!-- Inicio cabezera -->
-    <div class="container">
-        <div class="row">
-            <h1 class="text-center">Registrar Nuevo Perfil</h1>
-            <p class="text-center">Completar el siguiente formulario para registrar un nuevo Perfil de Usuario en el Sistema</p>
-        </div>
+<s:include value="include/menu.jsp"/>
+<!-- Inicio cabezera de escritorio -->
+<!-- Fin cabezera de escritorio -->
+<!-- INICIO CONTENIDO -->
+<!-- Inicio cabezera -->
+<div class="container">
+    <div class="row">
+        <h1 class="text-center">Registrar Nuevo Perfil</h1>
+        <p class="text-center">Completar el siguiente formulario para registrar un nuevo Perfil de Usuario en el
+            Sistema</p>
     </div>
-    <!-- Fin cabezera-->
-    <!-- Inicio Formulario de Registro-->
-    <div class="container">
-        <div class="row">
-            <form action="registrarPerfil.action" class="form-horizontal" name="" method="POST">
-                <div class="form-group">
-                    <label for="inputNombrePerfil" class="col-sm-4 control-label">Nombre de Perfil</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="inputNombrePerfil" placeholder="Nombre Perfil" name="perfilBean.nombrePerfil" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputDescripcionPerfil" class="col-sm-4 control-label">Descripción</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" id="inputDescripcionPerfil" placeholder="Descripcion" name="perfilBean.descripcionPerfil" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-4 col-sm-4">
-                        <button type="submit" class="btn btn-default btn-lg btn-block btn-primary">Registrar</button>
-                        <button type="reset" class="btn btn-default btn-lg btn-block btn-default">Limpiar</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <s:if test="%{#estadoRegistro}">
-        <div class="container container-fluid">
-            <div class="row">
-                <div class="alert alert-success ">
-                    <strong>Reistro Exitoso!</strong> Perfil Registrado Correctamente.
+</div>
+<!-- Fin cabezera-->
+<!-- Inicio Formulario de Registro-->
+<div class="container">
+    <div class="row">
+        <form action="registrarPerfil.action" class="form-horizontal" name="" method="POST">
+            <div class="form-group">
+                <label for="inputNombrePerfil" class="col-sm-4 control-label">Nombre de Perfil</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputNombrePerfil" placeholder="Nombre Perfil"
+                           name="perfilBean.nombrePerfil" required>
                 </div>
             </div>
+            <div class="form-group">
+                <label for="inputDescripcionPerfil" class="col-sm-4 control-label">Descripción</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputDescripcionPerfil" placeholder="Descripcion"
+                           name="perfilBean.descripcionPerfil" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <button type="submit" class="btn btn-default btn-lg btn-block btn-primary">Registrar</button>
+                    <button type="reset" class="btn btn-default btn-lg btn-block btn-default">Limpiar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<s:if test="%{#estadoRegistro}">
+    <div class="container container-fluid">
+        <div class="row">
+            <div class="alert alert-success ">
+                <strong>Reistro Exitoso!</strong> Perfil Registrado Correctamente.
+            </div>
         </div>
-    </s:if>
+    </div>
+</s:if>
 
-    <!-- Fin Formulario de Registro -->
-    <!-- FIN CONTENIDO -->
+<!-- Fin Formulario de Registro -->
+<!-- FIN CONTENIDO -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-1.12.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
