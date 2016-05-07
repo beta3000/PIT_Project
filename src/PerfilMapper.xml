@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+	Paso2: se registran los SQL que se van a usar 
+	en la capa de datos
+	
+	El SQL que se escribe no es un SQL puro,
+	el que se envia directamente la BD, sino que
+	sufre algunos cambios
+	
+	id : es el nombre con que se va llamar al SQL
+	resultType: tipo de dato de salida del método en el dao
+	paramType: tipo de dato de entrada del método en el dao
+	
+	#{XXXXXX}: XXXXXX es un atributo del bean
+ -->
+<mapper namespace="perfilMapper">
+
+    <insert id="idInsertaPerfil" parameterType="perfilBeanIbatis">
+        INSERT INTO PERFIL
+        VALUES(NULL, #{nombrePerfil}, #{descripcionPerfil})
+    </insert>
+    <select id="idSelectTodos" resultType="perfilBeanIbatis">
+        SELECT
+        idPerfil as idPerfil,
+        nombrePerfil as nombrePerfil,
+        descripcionPerfil as descripcionPerfil
+        FROM PERFIL
+    </select>
+    <delete id="idDeletePerfil" parameterType="int">
+        DELETE FROM PERFIL WHERE idPerfil = #{idPerfil}
+    </delete>
+    <update id="idUpdatePerfil" parameterType="perfilBeanIbatis">
+        UPDATE PERFIL SET
+         nombrePerfil = #{nombrePerfil},
+         descripcionPerfil = #{descripcionPerfil}
+        WHERE idPerfil = #{idPerfil}
+    </update>
+</mapper>
+
+
+
+
+
+
+
+

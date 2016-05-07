@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="PIT_Project:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/PIT_Project_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="PIT_Project/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="PIT_Project" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="org.mybatis:mybatis:3.4.0" />
+          <element id="library" level="project" name="Struts 2-2.3.20.1" />
+          <element id="library" level="project" name="mysql:mysql-connector-java:5.0.4" />
+          <element id="library" level="project" name="jstl:jstl:1.2" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
