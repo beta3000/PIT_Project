@@ -13,4 +13,6 @@ public interface UsuarioService {
     int actualizarUsuario(UsuarioBean bean) throws Exception;
 
     List<UsuarioBean> listarUsuario() throws Exception;
+
+    UsuarioBean login(String email, String password) throws Exception;
 }

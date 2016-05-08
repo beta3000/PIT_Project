@@ -48,20 +48,20 @@
                            name="usuarioBean.apellidoUsuario" required>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="inputEmailUsuario" class="col-sm-4 control-label">Email de Usuario</label>
-                <div class="col-sm-4">
-                    <input type="email" class="form-control" id="inputEmailUsuario" placeholder="Email Usuario"
-                           name="usuarioBean.emailUsuario" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputPasswordUsuario" class="col-sm-4 control-label">Password de Usuario</label>
-                <div class="col-sm-4">
-                    <input type="text" class="form-control" id="inputPasswordUsuario" placeholder="Password Usuario"
-                           name="usuarioBean.passwordUsuario" required>
-                </div>
-            </div>
+            <%--<div class="form-group">--%>
+            <%--<label for="inputEmailUsuario" class="col-sm-4 control-label">Email de Usuario</label>--%>
+            <%--<div class="col-sm-4">--%>
+            <%--<input type="email" class="form-control" id="inputEmailUsuario" placeholder="Email Usuario"--%>
+            <%--name="usuarioBean.emailUsuario" required>--%>
+            <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="form-group">--%>
+            <%--<label for="inputPasswordUsuario" class="col-sm-4 control-label">Password de Usuario</label>--%>
+            <%--<div class="col-sm-4">--%>
+            <%--<input type="text" class="form-control" id="inputPasswordUsuario" placeholder="Password Usuario"--%>
+            <%--name="usuarioBean.passwordUsuario" required>--%>
+            <%--</div>--%>
+            <%--</div>--%>
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="selectPerfilUsuario">Perfil de Usuario</label>
                 <div class="col-sm-4">

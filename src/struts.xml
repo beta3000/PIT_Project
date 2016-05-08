@@ -77,5 +77,16 @@
             <result name="success" type="redirectAction">listarUsuario</result>
             <result name="error">/error.jsp</result>
         </action>
+
+        <action name="loginUsuario" class="com.mycompany.ws.action.LoginUsuarioAction"
+                method="loginUsuario">
+            <result name="success">/escritorio.jsp</result>
+            <result name="login">/index.jsp</result>
+        </action>
+
+        <action name="logoutUsuario" class="com.mycompany.ws.action.LoginUsuarioAction"
+                method="logoutUsuario">
+            <result name="login">/index.jsp</result>
+        </action>
     </package>
 </struts>

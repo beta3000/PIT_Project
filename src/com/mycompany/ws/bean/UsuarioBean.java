@@ -9,7 +9,6 @@ public class UsuarioBean {
     private String emailUsuario;
     private String passwordUsuario;
     private PerfilBean perfilUsuario;
-    private int idPerfil;
 
     public UsuarioBean() {
     }
@@ -70,11 +69,4 @@ public class UsuarioBean {
         this.perfilUsuario = perfilUsuario;
     }
 
-    public int getIdPerfil() {
-        return idPerfil;
-    }
-
-    public void setIdPerfil(int idPerfil) {
-        this.idPerfil = idPerfil;
-    }
 }

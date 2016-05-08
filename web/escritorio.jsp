@@ -24,6 +24,20 @@
 <body>
 <s:include value="include/menu.jsp"/>
 <!-- Inicio cabezera de escritorio -->
+<%--<s:actionmessage class="alert alert-success list-unstyled text-center"/>--%>
+<s:if test="usuarioBean != null">
+    <div class="container">
+        <div class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Bienvenido</strong> ${sessionScope.usuario.nombreUsuario}, ${sessionScope.usuario.apellidoUsuario}
+            has ingresado correctamente.
+        </div>
+    </div>
+</s:if>
+<h3>Bienvenido ${sessionScope.usuario.idUsuario}</h3>
+<h3> ${sessionScope.usuario.nombreUsuario}</h3>
+<h3> ${sessionScope.usuario.apellidoUsuario}</h3>
+<h3> ${sessionScope.usuario.fechaRegistroUsuario}</h3>
 
 <!-- Fin cabezera de escritorio -->
 <!-- INICIO CONTENIDO -->

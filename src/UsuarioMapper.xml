@@ -25,16 +25,10 @@
         #{perfilUsuario.idPerfil})
     </insert>
 
-    <select id="idSelectTodosUsuario" resultType="usuarioBeanIbatis">
-        SELECT
-          idUsuario as idUsuario,
-          nombreUsuario as nombreUsuario,
-          apellidoUsuario as apellidoUsuario,
-          fechaRegistroUsuario as fechaRegistroUsuario,
-          emailUsuario as emailUsuario,
-          passwordUsuario as passwordUsuario,
-          idPerfil as idPerfil
-        FROM USUARIO
+    <select id="idSelectTodosUsuario" resultMap="idSelectTodosUsuarioMap">
+        SELECT U.*,P.*
+        FROM USUARIO AS U INNER JOIN PERFIL AS P
+        ON U.idPerfil = P.idPerfil
     </select>
 
     <delete id="idDeleteUsuario" parameterType="int">
@@ -50,6 +44,22 @@
         idPerfil = #{perfilUsuario.idPerfil}
         WHERE idUsuario = #{idUsuario}
     </update>
+
+    <resultMap id="idSelectTodosUsuarioMap" type="usuarioBeanIbatis">
+        <id column="idUsuario" property="idUsuario"/>
+        <id column="nombreUsuario" property="nombreUsuario"/>
+        <id column="apellidoUsuario" property="apellidoUsuario"/>
+        <id column="fechaRegistroUsuario" property="fechaRegistroUsuario"/>
+        <id column="emailUsuario" property="emailUsuario"/>
+        <id column="passwordUsuario" property="passwordUsuario"/>
+        <association property="perfilUsuario" resultMap="idSelectTodosPerfilMap"/>
+    </resultMap>
+
+    <resultMap id="idSelectTodosPerfilMap" type="perfilBeanIbatis">
+        <id column="idPerfil" property="idPerfil"/>
+        <id column="nombrePerfil" property="nombrePerfil"/>
+        <id column="descripcionPerfil" property="descripcionPerfil"/>
+    </resultMap>
 </mapper>
 
 

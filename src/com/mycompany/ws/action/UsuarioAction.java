@@ -6,7 +6,7 @@ import com.mycompany.ws.service.PerfilService;
 import com.mycompany.ws.service.PerfilServiceImpl;
 import com.mycompany.ws.service.UsuarioService;
 import com.mycompany.ws.service.UsuarioServiceImpl;
-import com.mycompany.ws.util.Fecha;
+import com.mycompany.ws.util.Funciones;
 import com.opensymphony.xwork2.ActionSupport;
 
 import java.util.ArrayList;
@@ -37,7 +37,9 @@ public class UsuarioAction extends ActionSupport {
         int insertado = -1;
         usuarioService = new UsuarioServiceImpl();
         try {
-            usuarioBean.setFechaRegistroUsuario(Fecha.obtenerFechaActual());
+            usuarioBean.setFechaRegistroUsuario(Funciones.obtenerFechaActual());
+            usuarioBean.setEmailUsuario(Funciones.obtenerEmailUsuario(usuarioBean.getNombreUsuario(), usuarioBean.getApellidoUsuario()));
+            usuarioBean.setPasswordUsuario(Funciones.obtenerPasswordUsuario(usuarioBean.getNombreUsuario(), usuarioBean.getApellidoUsuario()));
 
             insertado = usuarioService.registrarUsuario(usuarioBean);
         } catch (Exception e) {

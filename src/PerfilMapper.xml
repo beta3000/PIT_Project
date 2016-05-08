@@ -39,6 +39,7 @@
          descripcionPerfil = #{descripcionPerfil}
         WHERE idPerfil = #{idPerfil}
     </update>
+
 </mapper>
 
 

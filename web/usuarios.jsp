@@ -44,6 +44,8 @@
                 <th>Apellidos</th>
                 <th>Fecha Registro</th>
                 <th>Email</th>
+                <th>Password</th>
+                <th>Perfil</th>
                 <th>Operación</th>
             </tr>
             </thead>
@@ -54,6 +56,8 @@
                     <td><s:property value="apellidoUsuario"/></td>
                     <td><s:property value="fechaRegistroUsuario"/></td>
                     <td><s:property value="emailUsuario"/></td>
+                    <td><s:property value="passwordUsuario"/></td>
+                    <td><s:property value="perfilUsuario.nombrePerfil"/></td>
                     <td>
                         <s:url action="buscarUsuarioPorID" id="buscarPorID">
                             <s:param name="usuarioBean.idUsuario">

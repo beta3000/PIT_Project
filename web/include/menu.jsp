@@ -81,7 +81,7 @@
                             <li><a href="#">Editar Perfil</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">SALIR</a></li>
+                    <li><a href="<s:url action="logoutUsuario"></s:url>">SALIR</a></li>
                 </ul>
             </div>
         </nav>
