@@ -59,7 +59,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="<s:url action="listarPerfil"></s:url>">Ver/Buscar</a></li>
-                            <li><a href="../registrarPerfil.jsp">Registrar</a></li>
+                            <li><a href="registrarPerfil.jsp">Registrar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -77,7 +77,7 @@
                             ${sessionScope.usuario.nombreUsuario} <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="/perfil.jsp">Ver Perfil</a></li>
+                            <li><a href="perfil.jsp">Ver Perfil</a></li>
                             <li><a href="#">Editar Perfil</a></li>
                         </ul>
                     </li>
