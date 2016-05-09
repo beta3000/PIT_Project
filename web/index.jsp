@@ -5,7 +5,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=1,initial-scale=1,user-scalable=1"/>
-    <title>Insert title here</title>
+    <title>Login</title>
 
     <link href="http://fonts.googleapis.com/css?family=Lato:100italic,100,300italic,300,400italic,400,700italic,700,900italic,900"
           rel="stylesheet" type="text/css">
@@ -24,7 +24,9 @@
     <section class="login-form">
         <form method="post" action="loginUsuario.action" role="login">
             <section>
-                <h2>Please sign in</h2>
+                <h2>Entrar
+                    <small>Esta página está restringida</small>
+                </h2>
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon"><span class="text-primary glyphicon glyphicon-envelope"></span>
@@ -35,18 +37,21 @@
                 <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon"><span class="text-primary glyphicon glyphicon-lock"></span></div>
-                        <input type="password" name="password" placeholder="Password" required class="form-control"/>
+                        <input type="password" name="password" placeholder="Contraseña" required class="form-control"/>
                     </div>
                 </div>
 
+                <%--<div class="form-group">--%>
+                <%--<input type="checkbox" name="remember" value="1"/> Remember me--%>
+                <%--</div>--%>
                 <div class="form-group">
-                    <input type="checkbox"/> <!--name="remember" value="1"-->  Remember me
+                    <input type="checkbox" value="1"/> Recordar Datos de Usuario
                 </div>
                 <s:actionerror class="alert alert-danger text-center" id="alert-message"/>
-                <button type="submit" class="btn btn-block btn-success">Sign in</button>
+                <button type="submit" class="btn btn-block btn-primary">Ingresar</button>
             </section>
             <div>
-                <a href="#">Forgot password ?</a>
+                <a href="#">¿Perdiste la contraseña?</a>
             </div>
         </form>
 

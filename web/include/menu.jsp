@@ -74,10 +74,10 @@
                 <ul class="nav navbar-nav navbar-right" role="navigation">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            PERFIL <b class="caret"></b>
+                            ${sessionScope.usuario.nombreUsuario} <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Ver Perfil</a></li>
+                            <li><a href="/perfil.jsp">Ver Perfil</a></li>
                             <li><a href="#">Editar Perfil</a></li>
                         </ul>
                     </li>
