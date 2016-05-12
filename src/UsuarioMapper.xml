@@ -22,7 +22,7 @@
     <insert id="idInsertaUsuario" parameterType="usuarioBeanIbatis">
         INSERT INTO USUARIO
         VALUES(NULL, #{nombreUsuario}, #{apellidoUsuario}, #{fechaRegistroUsuario}, #{emailUsuario}, #{passwordUsuario},
-        #{perfilUsuario.idPerfil})
+        #{imagenUsuario}, #{imagenUsuarioBase64}, #{perfilUsuario.idPerfil})
     </insert>
 
     <select id="idSelectTodosUsuario" resultMap="idSelectTodosUsuarioMap">
@@ -52,6 +52,8 @@
         <id column="fechaRegistroUsuario" property="fechaRegistroUsuario"/>
         <id column="emailUsuario" property="emailUsuario"/>
         <id column="passwordUsuario" property="passwordUsuario"/>
+        <id column="imagenUsuario" property="imagenUsuario"/>
+        <id column="imagenUsuarioBase64" property="imagenUsuarioBase64"/>
         <association property="perfilUsuario" resultMap="idSelectTodosPerfilMap"/>
     </resultMap>
 

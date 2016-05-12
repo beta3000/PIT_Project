@@ -8,6 +8,8 @@ public class UsuarioBean {
     private String fechaRegistroUsuario;
     private String emailUsuario;
     private String passwordUsuario;
+    private byte[] imagenUsuario;
+    private String imagenUsuarioBase64;
     private PerfilBean perfilUsuario;
 
     public UsuarioBean() {
@@ -69,4 +71,19 @@ public class UsuarioBean {
         this.perfilUsuario = perfilUsuario;
     }
 
+    public byte[] getImagenUsuario() {
+        return imagenUsuario;
+    }
+
+    public void setImagenUsuario(byte[] imagenUsuario) {
+        this.imagenUsuario = imagenUsuario;
+    }
+
+    public String getImagenUsuarioBase64() {
+        return imagenUsuarioBase64;
+    }
+
+    public void setImagenUsuarioBase64(String imagenUsuarioBase64) {
+        this.imagenUsuarioBase64 = imagenUsuarioBase64;
+    }
 }

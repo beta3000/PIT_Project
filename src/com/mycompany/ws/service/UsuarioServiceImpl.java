@@ -2,6 +2,7 @@ package com.mycompany.ws.service;
 
 import com.mycompany.ws.bean.UsuarioBean;
 import com.mycompany.ws.dao.MySqlUsuarioDAO;
+import com.mycompany.ws.dao.UsuarioDAO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class UsuarioServiceImpl implements UsuarioService {
 
-    private MySqlUsuarioDAO dao = new MySqlUsuarioDAO();
+    private UsuarioDAO dao = new MySqlUsuarioDAO();
 
 
     @Override

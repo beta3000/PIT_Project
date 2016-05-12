@@ -80,7 +80,7 @@
                     <select class="form-control" id="selectPerfilUsuario" name="usuarioBean.perfilUsuario.idPerfil">
                         <s:iterator value="listaPerfil">
                             <option
-                                    <s:if test="usuarioBean.idPerfil == idPerfil">
+                                    <s:if test="usuarioBean.perfilUsuario.idPerfil == idPerfil">
                                         selected
                                     </s:if>
                                     value="<s:property value="idPerfil"/>"><s:property value="nombrePerfil"/></option>
@@ -115,7 +115,7 @@
 <!-- Fin Formulario de Registro -->
 <!-- FIN CONTENIDO -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-1.12.3.min.js"></script>
+<script src="js/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 </body>

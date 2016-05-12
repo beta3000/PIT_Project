@@ -51,6 +51,7 @@
         <action name="registrarUsuario" class="com.mycompany.ws.action.UsuarioAction"
                 method="registrarUsuario">
             <result name="success" type="redirectAction">listarUsuario</result>
+            <result name="noWebCam" type="redirectAction">cargarRegistroUsuario</result>
             <result name="error">/error.jsp</result>
         </action>
 
@@ -87,6 +88,14 @@
         <action name="logoutUsuario" class="com.mycompany.ws.action.LoginUsuarioAction"
                 method="logoutUsuario">
             <result name="login">/index.jsp</result>
+        </action>
+
+        <action name="registrarSocio" class="com.mycompany.ws.action.SocioAction"
+                method="registraSocio">
+            <result name="input">/registrarSocio.jsp</result>
+            <result name="success">/registrarSocio.jsp</result>
+            <result name="noWebCam">/registrarSocio.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
     </package>
 </struts>

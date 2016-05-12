@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 
+	Paso2: se registran los SQL que se van a usar 
+	en la capa de datos
+	
+	El SQL que se escribe no es un SQL puro,
+	el que se envia directamente la BD, sino que
+	sufre algunos cambios
+	
+	id : es el nombre con que se va llamar al SQL
+	resultType: tipo de dato de salida del método en el dao
+	paramType: tipo de dato de entrada del método en el dao
+	
+	#{XXXXXX}: XXXXXX es un atributo del bean
+ -->
+<mapper namespace="socioMapper">
+
+    <insert id="idInsertaSocio" parameterType="socioBeanIbatis">
+        INSERT INTO SOCIO
+        VALUES(NULL, #{imagenSocioBase64}, #{nombreSocio}, #{apellidoSocio}, #{DNISocio}, #{fechaNacimientoSocio},
+        #{sexoSocio}, #{estadoCivilSocio}, #{nombreConyugeSocio}, #{apellidoConyugeSocio}, #{departamentoNacimientoSocio},
+         #{provinciaNacimientoSocio}, #{distritoNacimientoSocio}, #{departamentoResidenciaSocio}, #{provinciaResidenciaSocio},
+         #{distritoResidenciaSocio}, #{direccionResidenciaSocio}, #{telefonoFijoSocio},#{telefonoMovilSocio},#{emailSocio},
+         #{passwordSocio}, #{fechaRegistroSocio}, #{imagenFirmaSocio},#{imagenHuellaSocio},#{secretaria.idUsuario})
+    </insert>
+
+    <!--<select id="idSelectTodosUsuario" resultMap="idSelectTodosUsuarioMap">-->
+    <!--SELECT U.*,P.*-->
+    <!--FROM USUARIO AS U INNER JOIN PERFIL AS P-->
+    <!--ON U.idPerfil = P.idPerfil-->
+    <!--</select>-->
+
+    <!--<delete id="idDeleteUsuario" parameterType="int">-->
+    <!--DELETE FROM USUARIO WHERE idUsuario = #{idUsuario}-->
+    <!--</delete>-->
+
+    <!--<update id="idUpdateUsuario" parameterType="usuarioBeanIbatis">-->
+    <!--UPDATE USUARIO SET-->
+    <!--nombreUsuario = #{nombreUsuario},-->
+    <!--apellidoUsuario = #{apellidoUsuario},-->
+    <!--emailUsuario = #{emailUsuario},-->
+    <!--passwordUsuario = #{passwordUsuario},-->
+    <!--idPerfil = #{perfilUsuario.idPerfil}-->
+    <!--WHERE idUsuario = #{idUsuario}-->
+    <!--</update>-->
+
+    <!--<resultMap id="idSelectTodosUsuarioMap" type="usuarioBeanIbatis">-->
+    <!--<id column="idUsuario" property="idUsuario"/>-->
+    <!--<id column="nombreUsuario" property="nombreUsuario"/>-->
+    <!--<id column="apellidoUsuario" property="apellidoUsuario"/>-->
+    <!--<id column="fechaRegistroUsuario" property="fechaRegistroUsuario"/>-->
+    <!--<id column="emailUsuario" property="emailUsuario"/>-->
+    <!--<id column="passwordUsuario" property="passwordUsuario"/>-->
+    <!--<id column="imagenUsuario" property="imagenUsuario"/>-->
+    <!--<id column="imagenUsuarioBase64" property="imagenUsuarioBase64"/>-->
+    <!--<association property="perfilUsuario" resultMap="idSelectTodosPerfilMap"/>-->
+    <!--</resultMap>-->
+
+    <!--<resultMap id="idSelectTodosPerfilMap" type="perfilBeanIbatis">-->
+    <!--<id column="idPerfil" property="idPerfil"/>-->
+    <!--<id column="nombrePerfil" property="nombrePerfil"/>-->
+    <!--<id column="descripcionPerfil" property="descripcionPerfil"/>-->
+    <!--</resultMap>-->
+</mapper>
+
+
+
+
+
+
+
+

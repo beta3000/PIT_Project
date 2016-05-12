@@ -29,7 +29,7 @@
 <div class="container">
     <div class="span3 well text-center">
         <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img
-                src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R"
+                src="${sessionScope.usuario.imagenUsuarioBase64}"
                 name="aboutme" width="140" height="140" class="img-circle"></a>
         <h3>${sessionScope.usuario.nombreUsuario},${sessionScope.usuario.apellidoUsuario}</h3>
         <em>click en mi imagen para obtener más detalles</em>
@@ -43,7 +43,7 @@
                     <h4 class="modal-title" id="myModalLabel">More About Joe</h4>
                 </div>
                 <div class="modal-body text-center">
-                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R"
+                    <img src="${sessionScope.usuario.imagenUsuarioBase64}"
                          name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
                     <h3 class="media-heading">Joe Sixpack
                         <small>USA</small>
@@ -69,7 +69,7 @@
 </div>
 <!-- FIN CONTENIDO -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-1.12.3.min.js"></script>
+<script src="js/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 <!-- DataTables -->

@@ -5,7 +5,7 @@ import com.mycompany.ws.bean.UsuarioBean;
 import java.util.List;
 
 
-interface UsuarioDAO {
+public interface UsuarioDAO {
     int inserta(UsuarioBean bean) throws Exception;
 
     int elimina(int id) throws Exception;

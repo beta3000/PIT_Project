@@ -8,9 +8,12 @@ import com.mycompany.ws.service.UsuarioService;
 import com.mycompany.ws.service.UsuarioServiceImpl;
 import com.mycompany.ws.util.Funciones;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.commons.codec.binary.Base64;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.mycompany.ws.util.Constantes.IMAGEN_DEFECTO;
 
 
 public class UsuarioAction extends ActionSupport {
@@ -20,6 +23,10 @@ public class UsuarioAction extends ActionSupport {
     private String mensaje;
     private PerfilService perfilService;
     private UsuarioService usuarioService;
+
+
+    //Imagen
+    private String imagen;
 
     public String cargarRegistroUsuario() {
         perfilService = new PerfilServiceImpl();
@@ -36,20 +43,33 @@ public class UsuarioAction extends ActionSupport {
     public String registrarUsuario() {
         int insertado = -1;
         usuarioService = new UsuarioServiceImpl();
-        try {
-            usuarioBean.setFechaRegistroUsuario(Funciones.obtenerFechaActual());
-            usuarioBean.setEmailUsuario(Funciones.obtenerEmailUsuario(usuarioBean.getNombreUsuario(), usuarioBean.getApellidoUsuario()));
-            usuarioBean.setPasswordUsuario(Funciones.obtenerPasswordUsuario(usuarioBean.getNombreUsuario(), usuarioBean.getApellidoUsuario()));
-
-            insertado = usuarioService.registrarUsuario(usuarioBean);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        if (insertado == -1) {
-            mensaje = ERROR;
+        if (imagen.equals(IMAGEN_DEFECTO)) {
+            mensaje = "noWebCam";
+            return mensaje;
         } else {
-            mensaje = SUCCESS;
+            try {
+                usuarioBean.setFechaRegistroUsuario(Funciones.obtenerFechaActual());
+                usuarioBean.setEmailUsuario(Funciones.obtenerEmailUsuario(usuarioBean.getNombreUsuario(), usuarioBean.getApellidoUsuario()));
+                usuarioBean.setPasswordUsuario(Funciones.obtenerPasswordUsuario(usuarioBean.getNombreUsuario(), usuarioBean.getApellidoUsuario()));
+
+            /*Imagen Base 64*/
+                usuarioBean.setImagenUsuarioBase64(imagen);
+
+            /*Imagen byte*/
+                imagen = imagen.substring(imagen.indexOf(',') + 1, imagen.length() - 1);
+                byte[] byteImagen = new Base64().decode(imagen);
+                usuarioBean.setImagenUsuario(byteImagen);
+
+                insertado = usuarioService.registrarUsuario(usuarioBean);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            if (insertado == -1) {
+                mensaje = ERROR;
+            } else {
+                mensaje = SUCCESS;
+            }
         }
         return mensaje;
     }
@@ -137,4 +157,13 @@ public class UsuarioAction extends ActionSupport {
     public void setListaUsuario(List<UsuarioBean> listaUsuario) {
         this.listaUsuario = listaUsuario;
     }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
 }

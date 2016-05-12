@@ -23,7 +23,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Ver/Buscar</a></li>
-                            <li><a href="#">Registrar</a></li>
+                            <li><a href="registrarSocio.jsp">Registrar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

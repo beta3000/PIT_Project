@@ -40,6 +40,7 @@
             <thead>
             <tr>
                 <th>ID</th>
+                <th>Foto</th>
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>Fecha Registro</th>
@@ -52,6 +53,8 @@
             <s:iterator value="listaUsuario">
                 <tr>
                     <td><s:property value="idUsuario"/></td>
+                    <td class="col-sm-1"><img src="<s:property value="imagenUsuarioBase64"/>" class="img-responsive">
+                    </td>
                     <td><s:property value="nombreUsuario"/></td>
                     <td><s:property value="apellidoUsuario"/></td>
                     <td><s:property value="fechaRegistroUsuario"/></td>
@@ -89,7 +92,7 @@
 </div>
 <!-- FIN CONTENIDO -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-1.12.3.min.js"></script>
+<script src="js/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 <!-- DataTables -->

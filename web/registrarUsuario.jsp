@@ -48,20 +48,31 @@
                            name="usuarioBean.apellidoUsuario" required>
                 </div>
             </div>
-            <%--<div class="form-group">--%>
-            <%--<label for="inputEmailUsuario" class="col-sm-4 control-label">Email de Usuario</label>--%>
-            <%--<div class="col-sm-4">--%>
-            <%--<input type="email" class="form-control" id="inputEmailUsuario" placeholder="Email Usuario"--%>
-            <%--name="usuarioBean.emailUsuario" required>--%>
-            <%--</div>--%>
-            <%--</div>--%>
-            <%--<div class="form-group">--%>
-            <%--<label for="inputPasswordUsuario" class="col-sm-4 control-label">Password de Usuario</label>--%>
-            <%--<div class="col-sm-4">--%>
-            <%--<input type="text" class="form-control" id="inputPasswordUsuario" placeholder="Password Usuario"--%>
-            <%--name="usuarioBean.passwordUsuario" required>--%>
-            <%--</div>--%>
-            <%--</div>--%>
+            <div class="form-group">
+                <%--<label for="inputImagenUsuario" class="col-sm-4 control-label">Imagen de Perfil</label>--%>
+                <%--<div class="col-sm-4">--%>
+                <%--<input type="text" class="form-control" id="inputImagenUsuario" placeholder="Apellidos Usuario"--%>
+                <%--name="usuarioBean.apellidoUsuario" required>--%>
+                <%--</div>--%>
+                <div class="col-sm-offset-4 col-sm-4">
+                    <%--<img  src="images/bg.jpg" class="img-responsive"/>--%>
+                    <video id="video" src="images/bg.jpg" class="img-responsive"></video>
+                </div>
+                <div class="col-sm-4">
+                    <%--<img src="images/bg.jpg" class="img-responsive"/>--%>
+                    <canvas id="canvas" class="img-responsive">
+                    </canvas>
+                    <s:hidden id="photo" name="imagen" value=""/>
+                    <%--<img id="photo" class="img-responsive"/>--%>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <button id="startbutton" type="button" class="btn btn-default btn-lg btn-block btn-success">
+                        Capturar
+                    </button>
+                </div>
+            </div>
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="selectPerfilUsuario">Perfil de Usuario</label>
                 <div class="col-sm-4">
@@ -71,11 +82,6 @@
                             <option value="<s:property value="idPerfil"/>"><s:property value="nombrePerfil"/></option>
                         </s:iterator>
                     </select>
-                    <%--<s:select list="listaPerfil"  id="selectPerfilUsuario" class="form-control"--%>
-                    <%--name="usuarioBean.perfilUsuario.idPerfil"--%>
-                    <%--listKey="idPerfil"--%>
-                    <%--listValue="nombrePerfil">--%>
-                    <%--</s:select>--%>
                 </div>
             </div>
             <div class="form-group">
@@ -100,9 +106,11 @@
 <!-- Fin Formulario de Registro -->
 <!-- FIN CONTENIDO -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-1.12.3.min.js"></script>
+<script src="js/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+<%--Canvas WebCam--%>
+<script src="js/capture.js"></script>
 </body>
 </html>
 
