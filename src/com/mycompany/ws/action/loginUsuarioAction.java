@@ -9,7 +9,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import java.util.Map;
 
-public class LoginUsuarioAction extends ActionSupport implements SessionAware {
+public class loginUsuarioAction extends ActionSupport implements SessionAware {
 
     private UsuarioBean usuarioBean;
     private String email, password;
