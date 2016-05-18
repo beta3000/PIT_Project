@@ -9,28 +9,28 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import java.util.Map;
 
-public class LoginUsuarioAction extends ActionSupport implements SessionAware {
+public class LoginUsuarioAction2 extends ActionSupport implements SessionAware {
 
     private UsuarioBean usuarioBean;
     private String email, password;
-    private Map<String,Object> session;
+    private Map<String, Object> session;
     private boolean estado = false;
 
-    public String loginUsuario(){
+    public String loginUsuario() {
         String vista = "";
         UsuarioService service = new UsuarioServiceImpl();
         try {
-            usuarioBean = service.login(email,password);
-        }catch (Exception e){
+            usuarioBean = service.login(email, password);
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if (usuarioBean != null){
-            session.put("usuario",usuarioBean);
+        if (usuarioBean != null) {
+            session.put("usuario", usuarioBean);
             vista = SUCCESS;
             addActionMessage(Constantes.LOGIN_SUCCESS);
             estado = true;
-        }else {
+        } else {
             vista = LOGIN;
             addActionError(Constantes.LOGIN_ERROR);
         }
@@ -38,8 +38,8 @@ public class LoginUsuarioAction extends ActionSupport implements SessionAware {
         return vista;
     }
 
-    public String logoutUsuario(){
-        if (session.containsKey("usuario")){
+    public String logoutUsuario() {
+        if (session.containsKey("usuario")) {
             session.remove("usuario");
         }
         return LOGIN;
