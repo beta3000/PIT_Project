@@ -79,13 +79,13 @@
             <result name="error">/error.jsp</result>
         </action>
 
-        <action name="loginUsuario" class="com.mycompany.ws.action.loginUsuarioAction"
+        <action name="loginUsuario" class="com.mycompany.ws.action.LoginUsuarioAction"
                 method="loginUsuario">
             <result name="success">/escritorio.jsp</result>
             <result name="login">/index.jsp</result>
         </action>
 
-        <action name="logoutUsuario" class="com.mycompany.ws.action.loginUsuarioAction"
+        <action name="logoutUsuario" class="com.mycompany.ws.action.LoginUsuarioAction"
                 method="logoutUsuario">
             <result name="login">/index.jsp</result>
         </action>
