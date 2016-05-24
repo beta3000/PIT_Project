@@ -30,7 +30,7 @@
 <!-- Inicio cabezera -->
 <div class="container">
     <div class="row">
-        <h1 class="text-center">Perfiles</h1>
+        <h1 class="text-center">Socios</h1>
     </div>
 </div>
 <!-- Fin cabezera-->
@@ -40,20 +40,31 @@
             <thead>
             <tr>
                 <th>ID</th>
+                <th>Foto</th>
                 <th>Nombre</th>
-                <th>Descripción</th>
+                <th>Apellidos</th>
+                <th>DNI</th>
+                <th>Fecha Registro</th>
+                <th>Email</th>
+                <th>Password</th>
                 <th>Operación</th>
             </tr>
             </thead>
-            <s:iterator value="listaPerfil">
+            <s:iterator value="listaSocio">
                 <tr>
-                    <td><s:property value="idPerfil"/></td>
-                    <td><s:property value="nombrePerfil"/></td>
-                    <td><s:property value="descripcionPerfil"/></td>
+                    <td><s:property value="idSocio"/></td>
+                    <td class="col-sm-1"><img src="<s:property value="imagenSocioBase64"/>" class="img-responsive">
+                    </td>
+                    <td><s:property value="nombreSocio"/></td>
+                    <td><s:property value="apellidoSocio"/></td>
+                    <td><s:property value="DNISocio"/></td>
+                    <td><s:property value="fechaRegistroSocio"/></td>
+                    <td><s:property value="emailSocio"/></td>
+                    <td><s:property value="passwordSocio"/></td>
                     <td>
-                        <s:url action="buscarPerfilPorID" id="buscarPorID">
-                            <s:param name="perfilBean.idPerfil">
-                                <s:property value="idPerfil"/>
+                        <s:url action="buscarSocioPorID" id="buscarPorID">
+                            <s:param name="socioBean.idSocio">
+                                <s:property value="idSocio"/>
                             </s:param>
                         </s:url>
                         <s:a href="%{buscarPorID}">
@@ -62,9 +73,9 @@
                                 Actualizar
                             </button>
                         </s:a>
-                        <s:url action="eliminarPerfil" id="eliminar">
-                            <s:param name="perfilBean.idPerfil">
-                                <s:property value="idPerfil"/>
+                        <s:url action="eliminarSocio" id="eliminar">
+                            <s:param name="socioBean.idSocio">
+                                <s:property value="idSocio"/>
                             </s:param>
                         </s:url>
                         <s:a href="%{eliminar}">

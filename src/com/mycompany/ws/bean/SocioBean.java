@@ -25,7 +25,7 @@ public class SocioBean {
     private String fechaRegistroSocio;
     private byte[] imagenFirmaSocio;
     private byte[] imagenHuellaSocio;
-    private UsuarioBean secretaria;
+    private UsuarioBean usuario;
 
     public SocioBean() {
     }
@@ -222,11 +222,11 @@ public class SocioBean {
         this.imagenHuellaSocio = imagenHuellaSocio;
     }
 
-    public UsuarioBean getSecretaria() {
-        return secretaria;
+    public UsuarioBean getUsuario() {
+        return usuario;
     }
 
-    public void setSecretaria(UsuarioBean secretaria) {
-        this.secretaria = secretaria;
+    public void setUsuario(UsuarioBean usuario) {
+        this.usuario = usuario;
     }
 }

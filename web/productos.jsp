@@ -30,7 +30,7 @@
 <!-- Inicio cabezera -->
 <div class="container">
     <div class="row">
-        <h1 class="text-center">Perfiles</h1>
+        <h1 class="text-center">Productos</h1>
     </div>
 </div>
 <!-- Fin cabezera-->
@@ -41,19 +41,23 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Precio</th>
                 <th>Descripción</th>
+                <th>Tasa</th>
                 <th>Operación</th>
             </tr>
             </thead>
-            <s:iterator value="listaPerfil">
+            <s:iterator value="listaProducto">
                 <tr>
-                    <td><s:property value="idPerfil"/></td>
-                    <td><s:property value="nombrePerfil"/></td>
-                    <td><s:property value="descripcionPerfil"/></td>
+                    <td><s:property value="idProducto"/></td>
+                    <td><s:property value="nombreProducto"/></td>
+                    <td><s:property value="precioProducto"/></td>
+                    <td><s:property value="descripcionProducto"/></td>
+                    <td><s:property value="tasaProducto"/></td>
                     <td>
-                        <s:url action="buscarPerfilPorID" id="buscarPorID">
-                            <s:param name="perfilBean.idPerfil">
-                                <s:property value="idPerfil"/>
+                        <s:url action="buscarProductoPorID" id="buscarPorID">
+                            <s:param name="productoBean.idProducto">
+                                <s:property value="idProducto"/>
                             </s:param>
                         </s:url>
                         <s:a href="%{buscarPorID}">
@@ -62,9 +66,9 @@
                                 Actualizar
                             </button>
                         </s:a>
-                        <s:url action="eliminarPerfil" id="eliminar">
-                            <s:param name="perfilBean.idPerfil">
-                                <s:property value="idPerfil"/>
+                        <s:url action="eliminarProducto" id="eliminar">
+                            <s:param name="productoBean.idProducto">
+                                <s:property value="idProducto"/>
                             </s:param>
                         </s:url>
                         <s:a href="%{eliminar}">

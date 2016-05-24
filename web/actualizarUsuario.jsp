@@ -76,7 +76,6 @@
             <div class="form-group">
                 <label class="col-sm-4 control-label" for="selectPerfilUsuario">Perfil de Usuario</label>
                 <div class="col-sm-4">
-                    <%--<input type="" class="form-control" id="inputPerfilUsuario"  name="usuarioBean.perfilUsuario.idPerfil" required>--%>
                     <select class="form-control" id="selectPerfilUsuario" name="usuarioBean.perfilUsuario.idPerfil">
                         <s:iterator value="listaPerfil">
                             <option
@@ -86,11 +85,6 @@
                                     value="<s:property value="idPerfil"/>"><s:property value="nombrePerfil"/></option>
                         </s:iterator>
                     </select>
-                    <%--<s:select list="listaPerfil"  id="selectPerfilUsuario" class="form-control"--%>
-                    <%--name="usuarioBean.perfilUsuario.idPerfil"--%>
-                    <%--listKey="idPerfil"--%>
-                    <%--listValue="nombrePerfil">--%>
-                    <%--</s:select>--%>
                 </div>
             </div>
             <div class="form-group">

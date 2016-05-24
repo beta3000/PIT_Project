@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
-<%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,9 +16,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script>
-
-    </script>
 </head>
 <body>
 <s:include value="include/menu.jsp"/>
@@ -29,39 +25,21 @@
 <!-- Inicio cabezera -->
 <div class="container">
     <div class="row">
-        <h1 class="text-center">Registrar Nuevo Socio</h1>
-        <p class="text-center">Completar el siguiente formulario para registrar un nuevo Socio en el Sistema</p>
+        <h1 class="text-center">Actualizar Socio</h1>
+        <p class="text-center">Completar el siguiente formulario para actualizar un Socio en el Sistema</p>
     </div>
 </div>
 <!-- Fin cabezera-->
 <!-- Inicio Formulario de Registro-->
 <div class="container">
     <div class="row">
-        <%--Imagen de Socio--%>
-        <form action="registrarSocio.action" class="form-horizontal" method="POST">
-            <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-4">
-                    <video id="video" src="images/bg.jpg" class="img-responsive"></video>
-                </div>
-                <div class="col-sm-4">
-                    <canvas id="canvas" class="img-responsive">
-                    </canvas>
-                    <s:hidden id="photo" name="imagen" value=""/>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-4 col-sm-4">
-                    <button id="startbutton" type="button" class="btn btn-default btn-lg btn-block btn-success">
-                        Capturar
-                    </button>
-                </div>
-            </div>
+        <form action="actualizarSocio.action" class="form-horizontal" method="POST">
             <%--Nombre de Socio--%>
             <div class="form-group">
                 <label for="inputNombreSocio" class="col-sm-4 control-label">Nombre de Socio</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputNombreSocio" placeholder="Nombre Socio"
-                           name="socioBean.nombreSocio" required>
+                           name="socioBean.nombreSocio" value="<s:property value="socioBean.nombreSocio"/>" required>
                 </div>
             </div>
             <%--Apellido Socio--%>
@@ -69,7 +47,8 @@
                 <label for="inputApellidoSocio" class="col-sm-4 control-label">Apellidos de Socio</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputApellidoSocio" placeholder="Apellidos Socio"
-                           name="socioBean.apellidoSocio" required>
+                           name="socioBean.apellidoSocio" value="<s:property value="socioBean.apellidoSocio"/>"
+                           required>
                 </div>
             </div>
             <%--DNI Socio--%>
@@ -77,7 +56,7 @@
                 <label for="inputDNISocio" class="col-sm-4 control-label">DNI de Socio</label>
                 <div class="col-sm-4">
                     <input maxlength="6" type="text" class="form-control" id="inputDNISocio" placeholder="DNI Socio"
-                           name="socioBean.DNISocio" required>
+                           name="socioBean.DNISocio" value="<s:property value="socioBean.DNISocio"/>" required>
                 </div>
             </div>
             <%--Fecha Nacimiento Socio--%>
@@ -86,7 +65,7 @@
                 <div class="col-sm-4">
                     <div class="input-group">
                         <input class="form-control" min="1916-01-01" id="date" name="socioBean.fechaNacimientoSocio"
-                               type="date"/>
+                               type="date" value="<s:property value="socioBean.fechaNacimientoSocio"/>" required/>
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -99,7 +78,12 @@
                 <div class="col-sm-4">
                     <select class="form-control" id="selectSexoSocio" name="socioBean.sexoSocio">
                         <option value="Masculino">Masculino</option>
-                        <option value="Femenino">Femenino</option>
+                        <option
+                                <s:if test="socioBean.sexoSocio == 'Femenino'">
+                                    selected
+                                </s:if>
+                                value="Femenino">Femenino
+                        </option>
                     </select>
                 </div>
             </div>
@@ -109,7 +93,12 @@
                 <div class="col-sm-4">
                     <select class="form-control" id="selectEstadoCivilSocio" name="socioBean.estadoCivilSocio">
                         <option value="Soltero">Soltero</option>
-                        <option value="Casado">Casado</option>
+                        <option
+                                <s:if test="socioBean.estadoCivilSocio == 'Casado'">
+                                    selected
+                                </s:if>
+                                value="Casado">Casado
+                        </option>
                     </select>
                 </div>
             </div>
@@ -118,7 +107,8 @@
                 <label for="inputNombreConyugeSocio" class="col-sm-4 control-label">Nombre Conyuge</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputNombreConyugeSocio" placeholder="Nombre Conyuge"
-                           name="socioBean.nombreConyugeSocio" required>
+                           name="socioBean.nombreConyugeSocio"
+                           value="<s:property value="socioBean.nombreConyugeSocio"/>" required>
                 </div>
             </div>
             <%--Apellido Conyuge Socio--%>
@@ -127,7 +117,8 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputApellidoConyugeSocio"
                            placeholder="Apellidos Conyuge"
-                           name="socioBean.apellidoConyugeSocio" required>
+                           name="socioBean.apellidoConyugeSocio"
+                           value="<s:property value="socioBean.apellidoConyugeSocio"/>" required>
                 </div>
             </div>
             <%--Departamento Nacimiento Socio--%>
@@ -137,7 +128,8 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputDepartamentoNacimientoSocio"
                            placeholder="Departamento Nacimiento Socio"
-                           name="socioBean.departamentoNacimientoSocio" required>
+                           name="socioBean.departamentoNacimientoSocio"
+                           value="<s:property value="socioBean.departamentoNacimientoSocio"/>" required>
                 </div>
             </div>
             <%--Provincia Nacimiento Socio--%>
@@ -147,7 +139,8 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputProvinciaNacimientoSocio"
                            placeholder="Provincia Nacimiento Socio"
-                           name="socioBean.provinciaNacimientoSocio" required>
+                           name="socioBean.provinciaNacimientoSocio"
+                           value="<s:property value="socioBean.provinciaNacimientoSocio"/>" required>
                 </div>
             </div>
             <%--Distrito Nacimiento Socio--%>
@@ -157,7 +150,8 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputDistritoNacimientoSocio"
                            placeholder="Distrito Nacimiento Socio"
-                           name="socioBean.distritoNacimientoSocio" required>
+                           name="socioBean.distritoNacimientoSocio"
+                           value="<s:property value="socioBean.distritoNacimientoSocio"/>" required>
                 </div>
             </div>
             <%--Departamento Residencia Socio--%>
@@ -167,7 +161,8 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputDepartamentoResidenciaSocio"
                            placeholder="Departamento Residencia Socio"
-                           name="socioBean.departamentoResidenciaSocio" required>
+                           name="socioBean.departamentoResidenciaSocio"
+                           value="<s:property value="socioBean.departamentoResidenciaSocio"/>" required>
                 </div>
             </div>
             <%--Provincia Residencia Socio--%>
@@ -177,7 +172,8 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputProvinciaResidenciaSocio"
                            placeholder="Provincia Residencia Socio"
-                           name="socioBean.provinciaResidenciaSocio" required>
+                           name="socioBean.provinciaResidenciaSocio"
+                           value="<s:property value="socioBean.provinciaResidenciaSocio"/>" required>
                 </div>
             </div>
             <%--Distrito Residencia Socio--%>
@@ -187,7 +183,8 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputDistritoResidenciaSocio"
                            placeholder="Distrito Residencia Socio"
-                           name="socioBean.distritoResidenciaSocio" required>
+                           name="socioBean.distritoResidenciaSocio"
+                           value="<s:property value="socioBean.distritoResidenciaSocio"/>" required>
                 </div>
             </div>
             <%--Direccion Residencia Socio--%>
@@ -197,7 +194,8 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputDireccionResidenciaSocio"
                            placeholder="Dirección Residencia Socio"
-                           name="socioBean.direccionResidenciaSocio" required>
+                           name="socioBean.direccionResidenciaSocio"
+                           value="<s:property value="socioBean.direccionResidenciaSocio"/>" required>
                 </div>
             </div>
             <%--Telefono Fijo Socio--%>
@@ -206,7 +204,8 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputTelefonoFijoSocio"
                            placeholder="Teléfono Fijo Socio"
-                           name="socioBean.telefonoFijoSocio" required>
+                           name="socioBean.telefonoFijoSocio" value="<s:property value="socioBean.telefonoFijoSocio"/>"
+                           required>
                 </div>
             </div>
             <%--Telefono Movil Socio--%>
@@ -215,7 +214,8 @@
                 <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputTelefonoMovilSocio"
                            placeholder="Teléfono Móvil Socio"
-                           name="socioBean.telefonoMovilSocio" required>
+                           name="socioBean.telefonoMovilSocio"
+                           value="<s:property value="socioBean.telefonoMovilSocio"/>" required>
                 </div>
             </div>
             <%--Email Socio--%>
@@ -223,14 +223,23 @@
                 <label for="inputEmailSocio" class="col-sm-4 control-label">Email Socio</label>
                 <div class="col-sm-4">
                     <input type="email" class="form-control" id="inputEmailSocio" placeholder="Email Socio"
-                           name="socioBean.emailSocio" required>
+                           name="socioBean.emailSocio" value="<s:property value="socioBean.emailSocio"/>" required>
                 </div>
             </div>
-            <%--ID de Secretaria--%>
-            <input type="hidden" name="socioBean.usuario.idUsuario" value="${sessionScope.usuario.idUsuario}"/>
+            <%--Password Socio--%>
+            <div class="form-group">
+                <label for="inputPassordSocio" class="col-sm-4 control-label">Password Socio</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="inputPassordSocio" placeholder="Password Socio"
+                           name="socioBean.passwordSocio" value="<s:property value="socioBean.passwordSocio"/>"
+                           required>
+                </div>
+            </div>
+            <%--ID de Socio--%>
+            <input type="hidden" name="socioBean.idSocio" value="<s:property value="socioBean.idSocio"/>"/>
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-4">
-                    <button type="submit" class="btn btn-default btn-lg btn-block btn-primary">Registrar</button>
+                    <button type="submit" class="btn btn-default btn-lg btn-block btn-primary">Actualizar</button>
                     <button type="reset" class="btn btn-default btn-lg btn-block btn-default">Limpiar</button>
                 </div>
             </div>
@@ -241,12 +250,9 @@
 <!-- Fin Formulario de Registro -->
 <!-- FIN CONTENIDO -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/jquery-1.12.3.min.js"></script>
+<script src="js/jquery.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
-<%--Canvas WebCam--%>
-<script src="js/capture.js"></script>
-
 </body>
 </html>
 

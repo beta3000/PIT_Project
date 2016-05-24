@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MySqlSocioDAO implements SocioDAO {
@@ -38,16 +39,47 @@ public class MySqlSocioDAO implements SocioDAO {
 
     @Override
     public int elimina(int id) throws Exception {
-        return 0;
+        int eliminado = -1;
+        SqlSession session = sqlMapper.openSession();
+        try {
+            eliminado = session.delete("idDeleteSocio", id);
+            session.commit();
+        } catch (Exception e) {
+            session.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return eliminado;
     }
 
     @Override
     public int actualiza(SocioBean bean) throws Exception {
-        return 0;
+        int actualizado = -1;
+        SqlSession session = sqlMapper.openSession();
+        try {
+            actualizado = session.update("idUpdateSocio", bean);
+            session.commit();
+        } catch (Exception e) {
+            session.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return actualizado;
     }
 
     @Override
     public List<SocioBean> obtenTodo() throws Exception {
-        return null;
+        List<SocioBean> lista = new ArrayList<>();
+        SqlSession session = sqlMapper.openSession();
+        try {
+            lista = session.selectList("idSelectTodosSocio");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return lista;
     }
 }

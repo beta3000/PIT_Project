@@ -1,6 +1,6 @@
 package com.mycompany.ws.dao;
 
-import com.mycompany.ws.bean.PerfilBean;
+import com.mycompany.ws.bean.ProductoBean;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -11,8 +11,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class MySqlPerfilDAO implements PerfilDAO {
+public class MySqlProductoDAO implements ProductoDAO {
 
     private SqlSessionFactory sqlMapper = null;
 
@@ -30,11 +29,11 @@ public class MySqlPerfilDAO implements PerfilDAO {
     }
 
     @Override
-    public int inserta(PerfilBean bean) throws Exception {
+    public int inserta(ProductoBean bean) throws Exception {
         int insertados = -1;
         SqlSession session = sqlMapper.openSession();
         try {
-            insertados = session.insert("idInsertaPerfil", bean);
+            insertados = session.insert("idInsertaProducto", bean);
             session.commit();
         } catch (Exception e) {
             session.rollback();
@@ -50,7 +49,7 @@ public class MySqlPerfilDAO implements PerfilDAO {
         int eliminado = -1;
         SqlSession session = sqlMapper.openSession();
         try {
-            eliminado = session.delete("idDeletePerfil", id);
+            eliminado = session.delete("idDeleteProducto", id);
             session.commit();
         } catch (Exception e) {
             session.rollback();
@@ -62,11 +61,11 @@ public class MySqlPerfilDAO implements PerfilDAO {
     }
 
     @Override
-    public int actualiza(PerfilBean bean) throws Exception {
+    public int actualiza(ProductoBean bean) throws Exception {
         int actualizado = -1;
         SqlSession session = sqlMapper.openSession();
         try {
-            actualizado = session.update("idUpdatePerfil", bean);
+            actualizado = session.update("idUpdateProducto", bean);
             session.commit();
         } catch (Exception e) {
             session.rollback();
@@ -78,19 +77,16 @@ public class MySqlPerfilDAO implements PerfilDAO {
     }
 
     @Override
-    public List<PerfilBean> obtenTodo() throws Exception {
-        List<PerfilBean> lista = new ArrayList<>();
+    public List<ProductoBean> obtenTodo() throws Exception {
+        List<ProductoBean> lista = new ArrayList<>();
         SqlSession session = sqlMapper.openSession();
         try {
-            lista = session.selectList("idSelectTodosPerfil");
-
+            lista = session.selectList("idSelectTodosProducto");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
-
         return lista;
     }
-
 }

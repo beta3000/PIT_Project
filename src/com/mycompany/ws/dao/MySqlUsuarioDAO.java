@@ -71,13 +71,15 @@ public class MySqlUsuarioDAO implements UsuarioDAO {
     @Override
     public List<UsuarioBean> obtenTodo() throws Exception {
         List<UsuarioBean> lista = new ArrayList<>();
-        try (SqlSession session = sqlMapper.openSession()) {
+        SqlSession session = sqlMapper.openSession();
+        try {
             lista = session.selectList("idSelectTodosUsuario");
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            session.close();
         }
-
         return lista;
     }
 }

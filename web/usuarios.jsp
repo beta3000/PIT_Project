@@ -70,7 +70,7 @@
                         <s:a href="%{buscarPorID}">
                             <button class="btn btn-primary">
                                 <span class="glyphicon glyphicon-edit"></span>
-                                ACTUALIZAR
+                                Actualizar
                             </button>
                         </s:a>
                         <s:url action="eliminarUsuario" id="eliminar">

@@ -7,8 +7,8 @@
 <struts>
     <constant name="struts.devMode" value="true"/>
 
-
     <package name="pit_perfil" extends="struts-default">
+
         <!--PERFIL-->
         <action name="registrarPerfil" class="com.mycompany.ws.action.PerfilAction"
                 method="registrarPerfil">
@@ -90,11 +90,68 @@
             <result name="login">/index.jsp</result>
         </action>
 
+        <!--SOCIO-->
         <action name="registrarSocio" class="com.mycompany.ws.action.SocioAction"
                 method="registraSocio">
             <result name="input">/registrarSocio.jsp</result>
-            <result name="success">/registrarSocio.jsp</result>
+            <result name="success" type="redirectAction">listarSocio</result>
             <result name="noWebCam">/registrarSocio.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="listarSocio" class="com.mycompany.ws.action.SocioAction"
+                method="listarSocio">
+            <result name="success">/socios.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="buscarSocioPorID" class="com.mycompany.ws.action.SocioAction"
+                method="buscarSocioPorId">
+            <result name="success">/actualizarSocio.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="actualizarSocio" class="com.mycompany.ws.action.SocioAction"
+                method="actualizarSocio">
+            <result name="success" type="redirectAction">listarSocio</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="eliminarSocio" class="com.mycompany.ws.action.SocioAction"
+                method="eliminarSocio">
+            <result name="success" type="redirectAction">listarSocio</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <!--PRODUCTO-->
+        <action name="registrarProducto" class="com.mycompany.ws.action.ProductoAction"
+                method="registrarProducto">
+            <result name="input">/registrarProducto.jsp</result>
+            <result name="success" type="redirectAction">listarProducto</result>
+            <result name="error">/registrarProducto.jsp</result>
+        </action>
+
+        <action name="listarProducto" class="com.mycompany.ws.action.ProductoAction"
+                method="listarProducto">
+            <result name="success">/productos.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="eliminarProducto" class="com.mycompany.ws.action.ProductoAction"
+                method="eliminarProducto">
+            <result name="success" type="redirectAction">listarProducto</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="buscarProductoPorID" class="com.mycompany.ws.action.ProductoAction"
+                method="buscarProductoPorID">
+            <result name="success">/actualizarProducto.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="actualizarProducto" class="com.mycompany.ws.action.ProductoAction"
+                method="actualizarProducto">
+            <result name="success" type="redirectAction">listarProducto</result>
             <result name="error">/error.jsp</result>
         </action>
     </package>

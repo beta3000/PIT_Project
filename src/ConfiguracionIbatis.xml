@@ -19,6 +19,9 @@
         <typeAlias
                 alias="socioBeanIbatis"
                 type="com.mycompany.ws.bean.SocioBean"/>
+        <typeAlias
+                alias="productoBeanIbatis"
+                type="com.mycompany.ws.bean.ProductoBean"/>
     </typeAliases>
 
     <environments default="development">
@@ -40,6 +43,7 @@
         <mapper resource="PerfilMapper.xml"/>
         <mapper resource="UsuarioMapper.xml"/>
         <mapper resource="SocioMapper.xml"/>
+        <mapper resource="ProductoMapper.xml"/>
     </mappers>
 </configuration>
 

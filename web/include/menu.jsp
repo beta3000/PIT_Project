@@ -22,7 +22,7 @@
                             SOCIOS<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Ver/Buscar</a></li>
+                            <li><a href="<s:url action="listarSocio"></s:url>">Ver/Buscar</a></li>
                             <li><a href="registrarSocio.jsp">Registrar</a></li>
                         </ul>
                     </li>
@@ -60,6 +60,15 @@
                         <ul class="dropdown-menu">
                             <li><a href="<s:url action="listarPerfil"></s:url>">Ver/Buscar</a></li>
                             <li><a href="registrarPerfil.jsp">Registrar</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            PRODUCTOS <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<s:url action="listarProducto"></s:url>">Ver/Buscar</a></li>
+                            <li><a href="registrarProducto.jsp">Registrar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
