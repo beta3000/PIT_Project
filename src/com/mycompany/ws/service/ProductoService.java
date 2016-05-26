@@ -13,4 +13,6 @@ public interface ProductoService {
 
     List<ProductoBean> listarProducto() throws Exception;
 
+    ProductoBean buscarPorID(int id) throws Exception;
+
 }

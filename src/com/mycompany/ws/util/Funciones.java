@@ -1,5 +1,7 @@
 package com.mycompany.ws.util;
 
+import com.mycompany.ws.bean.CuotaBean;
+import com.mycompany.ws.bean.ProductoBean;
 import com.mycompany.ws.bean.UsuarioBean;
 import com.mycompany.ws.service.UsuarioService;
 import com.mycompany.ws.service.UsuarioServiceImpl;
@@ -124,6 +126,69 @@ public class Funciones {
 
     public static String generarStringCodigoQR(String nombre, String apellido, String email, String password) {
         return nombre + ";" + apellido + ";" + email + ":" + password;
+    }
+
+    public static List<CuotaBean> generarCuotas(int numeroCuotas, ProductoBean productoBean) {
+        List<CuotaBean> listaCuota = new ArrayList<>();
+        CuotaBean cuotaBean = null;
+        double tasaMensual = (Math.pow((1 + productoBean.getTasaProducto()), (1.0 / 12.0))) - 1;
+        double valorCuota = productoBean.getPrecioProducto() * ((tasaMensual * Math.pow((1 + tasaMensual), numeroCuotas)) / (Math.pow((1 + tasaMensual), numeroCuotas) - 1));
+        Integer numCuota;
+        double deuda = productoBean.getPrecioProducto();
+        double interes;
+        double capital;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String fecAct = sdf.format(new Date());
+
+        for (int i = 0; i < numeroCuotas; i++) {
+            cuotaBean = new CuotaBean();
+            numCuota = i + 1;
+            interes = deuda * tasaMensual;
+            capital = valorCuota - interes;
+
+            //redondear valorCuota
+            valorCuota = redondear(valorCuota, 3);
+
+            cuotaBean.setIdCuota(numCuota);
+            cuotaBean.setFechaPagoCuota(fecAct);
+            cuotaBean.setMontoCuota(valorCuota);
+
+            listaCuota.add(cuotaBean);
+
+            fecAct = subeUnMes(fecAct);
+            deuda = deuda - capital;
+        }
+        return listaCuota;
+    }
+
+    public static String subeUnMes(String fecha) {
+        String salida = "-1";
+
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = sdf.parse(fecha);
+
+            long longDate = date.getTime();
+            longDate = longDate + (long) 30 * 24 * 60 * 60 * 1000;
+
+            Date dateSalida = new Date(longDate);
+
+            salida = sdf.format(dateSalida);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return salida;
+    }
+
+    public static double redondear(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        long factor = (long) Math.pow(10, places);
+        value = value * factor;
+        long tmp = Math.round(value);
+        return (double) tmp / factor;
     }
 
 }

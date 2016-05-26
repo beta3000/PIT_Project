@@ -4,7 +4,7 @@ package com.mycompany.ws.bean;
 public class ObligacionBean {
     private int idObligacion;
     private String fechaRegistroObligacion;
-    private int numeroCuptasObligacion;
+    private int numeroCuotasObligacion;
     private SocioBean socio;
     private UsuarioBean usuario;
     private ProductoBean producto;
@@ -28,12 +28,12 @@ public class ObligacionBean {
         this.fechaRegistroObligacion = fechaRegistroObligacion;
     }
 
-    public int getNumeroCuptasObligacion() {
-        return numeroCuptasObligacion;
+    public int getNumeroCuotasObligacion() {
+        return numeroCuotasObligacion;
     }
 
-    public void setNumeroCuptasObligacion(int numeroCuptasObligacion) {
-        this.numeroCuptasObligacion = numeroCuptasObligacion;
+    public void setNumeroCuotasObligacion(int numeroCuotasObligacion) {
+        this.numeroCuotasObligacion = numeroCuotasObligacion;
     }
 
     public SocioBean getSocio() {

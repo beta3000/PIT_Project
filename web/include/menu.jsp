@@ -32,7 +32,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Ver/Buscar</a></li>
-                            <li><a href="#">Generar</a></li>
+                            <li><a href="<s:url action="cargarFormularioObligacion"/>">Generar</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

@@ -5,6 +5,7 @@ import com.mycompany.ws.bean.ProductoBean;
 import com.mycompany.ws.dao.MySqlProductoDAO;
 import com.mycompany.ws.dao.ProductoDAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductoServiceImpl implements ProductoService {
@@ -29,5 +30,21 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public List<ProductoBean> listarProducto() throws Exception {
         return dao.obtenTodo();
+    }
+
+    @Override
+    public ProductoBean buscarPorID(int id) throws Exception {
+        List<ProductoBean> listaProducto = new ArrayList<>();
+        ProductoBean productoBean = null;
+        listaProducto = dao.obtenTodo();
+        for (ProductoBean x :
+                listaProducto) {
+            if (x.getIdProducto() == id) {
+                productoBean = new ProductoBean();
+                productoBean = x;
+            }
+
+        }
+        return productoBean;
     }
 }

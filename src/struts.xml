@@ -154,5 +154,18 @@
             <result name="success" type="redirectAction">listarProducto</result>
             <result name="error">/error.jsp</result>
         </action>
+
+        <!--OBLIGACION-->
+        <action name="cargarFormularioObligacion" class="com.mycompany.ws.action.ObligacionAction"
+                method="cargarFormularioObligacionInicial">
+            <result name="success">registrarObligacion.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
+
+        <action name="cargarCuotasObligacion" class="com.mycompany.ws.action.ObligacionAction"
+                method="cargarCuotasObligacion">
+            <result name="success">registrarObligacion.jsp</result>
+            <result name="error">error.jsp</result>
+        </action>
     </package>
 </struts>
