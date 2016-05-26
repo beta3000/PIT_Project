@@ -97,15 +97,30 @@
                 <thead>
                 <tr>
                     <th>Número</th>
-                    <th>Monto</th>
+                    <th>Capital</th>
+                    <th>Interés</th>
+                    <th>Monto a Pagar</th>
                     <th>Fecha de Pago</th>
+                    <th>Estado</th>
                 </tr>
                 </thead>
                 <s:iterator value="listaCuota">
-                    <tr>
+                    <tr
+                            <s:if test="estadoCuota == 'Vencida'">
+                                class="alert-danger"
+                            </s:if>
+                            <s:else>
+                                class="alert-info"
+                            </s:else>
+                    >
                         <td><s:property value="idCuota"/></td>
+                        <td>$ <s:property value="capitalCuota"/></td>
+                        <td>$ <s:property value="interesCuota"/></td>
                         <td>$ <s:property value="montoCuota"/></td>
                         <td><s:property value="fechaPagoCuota"/></td>
+                        <td>
+                            <s:property value="estadoCuota"/>
+                        </td>
                     </tr>
                 </s:iterator>
             </table>

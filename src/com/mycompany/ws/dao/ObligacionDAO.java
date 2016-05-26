@@ -5,7 +5,7 @@ import com.mycompany.ws.bean.ObligacionBean;
 import java.util.List;
 
 public interface ObligacionDAO {
-    int inserta(ObligacionBean bean) throws Exception;
+    ObligacionBean inserta(ObligacionBean bean) throws Exception;
 
     int elimina(int id) throws Exception;
 

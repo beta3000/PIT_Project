@@ -5,6 +5,8 @@ public class CuotaBean {
     private int idCuota;
     private String fechaPagoCuota;
     private double montoCuota;
+    private double capitalCuota;
+    private double interesCuota;
     private String estadoCuota;
     private ObligacionBean obligacion;
 
@@ -33,6 +35,22 @@ public class CuotaBean {
 
     public void setMontoCuota(double montoCuota) {
         this.montoCuota = montoCuota;
+    }
+
+    public double getCapitalCuota() {
+        return capitalCuota;
+    }
+
+    public void setCapitalCuota(double capitalCuota) {
+        this.capitalCuota = capitalCuota;
+    }
+
+    public double getInteresCuota() {
+        return interesCuota;
+    }
+
+    public void setInteresCuota(double interesCuota) {
+        this.interesCuota = interesCuota;
     }
 
     public String getEstadoCuota() {

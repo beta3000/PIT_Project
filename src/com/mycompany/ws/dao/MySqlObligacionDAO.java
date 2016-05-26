@@ -7,8 +7,8 @@ import java.util.List;
 
 public class MySqlObligacionDAO implements ObligacionDAO {
     @Override
-    public int inserta(ObligacionBean bean) throws Exception {
-        return 0;
+    public ObligacionBean inserta(ObligacionBean bean) throws Exception {
+        return null;
     }
 
     @Override

@@ -149,10 +149,20 @@ public class Funciones {
 
             //redondear valorCuota
             valorCuota = redondear(valorCuota, 3);
+            capital = redondear(capital, 3);
+            interes = redondear(interes, 3);
 
             cuotaBean.setIdCuota(numCuota);
             cuotaBean.setFechaPagoCuota(fecAct);
             cuotaBean.setMontoCuota(valorCuota);
+            cuotaBean.setCapitalCuota(capital);
+            cuotaBean.setInteresCuota(interes);
+
+            if (i == 0) {
+                cuotaBean.setEstadoCuota("Vencida");
+            } else {
+                cuotaBean.setEstadoCuota("Pendiente");
+            }
 
             listaCuota.add(cuotaBean);
 
