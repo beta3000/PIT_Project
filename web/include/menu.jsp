@@ -31,7 +31,7 @@
                             OBLIGACIONES DE PAGO<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Ver/Buscar</a></li>
+                            <li><a href="<s:url action="listarObligacion"/>">Ver/Buscar</a></li>
                             <li><a href="<s:url action="cargarFormularioObligacion"/>">Generar</a></li>
                         </ul>
                     </li>

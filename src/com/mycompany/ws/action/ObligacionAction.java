@@ -23,6 +23,7 @@ public class ObligacionAction extends ActionSupport {
     private SocioBean socioBean;
     private ObligacionBean obligacionBean;
     private ObligacionService obligacionService;
+    private List<ObligacionBean> listaObligacion;
     private CuotaService cuotaService;
     private List<CuotaBean> listaCuota = new ArrayList<>();
 
@@ -72,6 +73,18 @@ public class ObligacionAction extends ActionSupport {
             obligacionBean.setFechaRegistroObligacion(Funciones.obtenerFechaActual());
             obligacionBean.setCuotas(Funciones.generarCuotasSinId(obligacionBean.getNumeroCuotasObligacion(), productoBean));
             obligacionService.registrarObligacion(obligacionBean);
+            mensaje = SUCCESS;
+        } catch (Exception e) {
+            mensaje = ERROR;
+            e.printStackTrace();
+        }
+        return mensaje;
+    }
+
+    public String listaObligacion() {
+        obligacionService = new ObligacionServiceImpl();
+        try {
+            listaObligacion = obligacionService.listarObligacion();
             mensaje = SUCCESS;
         } catch (Exception e) {
             mensaje = ERROR;
@@ -136,4 +149,11 @@ public class ObligacionAction extends ActionSupport {
         this.listaCuota = listaCuota;
     }
 
+    public List<ObligacionBean> getListaObligacion() {
+        return listaObligacion;
+    }
+
+    public void setListaObligacion(List<ObligacionBean> listaObligacion) {
+        this.listaObligacion = listaObligacion;
+    }
 }

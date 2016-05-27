@@ -17,7 +17,7 @@
 	
 	#{XXXXXX}: XXXXXX es un atributo del bean
  -->
-<mapper namespace="productoMapper">
+<mapper namespace="obligacionMapper">
 
     <insert id="idInsertaObligacion"
             useGeneratedKeys="true"
@@ -31,26 +31,22 @@
         INSERT INTO CUOTA
         VALUES(NULL, #{fechaPagoCuota}, #{montoCuota},#{capitalCuota},#{interesCuota}, #{estadoCuota}, #{obligacion.idObligacion})
     </insert>
-    <!--<select id="idSelectTodosProducto" resultType="productoBeanIbatis">-->
-    <!--SELECT-->
-    <!--idProducto as idProducto,-->
-    <!--nombreProducto as nombreProducto,-->
-    <!--precioProducto as precioProducto,-->
-    <!--descripcionProducto as descripcionProducto,-->
-    <!--tasaProducto as tasaProducto-->
-    <!--FROM PRODUCTO-->
-    <!--</select>-->
-    <!--<delete id="idDeleteProducto" parameterType="int">-->
-    <!--DELETE FROM PRODUCTO WHERE idProducto = #{idProducto}-->
-    <!--</delete>-->
-    <!--<update id="idUpdateProducto" parameterType="productoBeanIbatis">-->
-    <!--UPDATE PRODUCTO SET-->
-    <!--nombreProducto = #{nombreProducto},-->
-    <!--precioProducto = #{precioProducto},-->
-    <!--descripcionProducto = #{descripcionProducto},-->
-    <!--tasaProducto = #{tasaProducto}-->
-    <!--WHERE idProducto = #{idProducto}-->
-    <!--</update>-->
+
+    <select id="idSelectTodosObligacion" resultMap="idSelectTodosObligacionMap">
+        SELECT O.*, S.*, U.*, P.*
+        FROM OBLIGACION AS O INNER JOIN SOCIO AS S
+        ON O.idSocio = S.idSocio INNER JOIN USUARIO AS U
+        ON O.idUsuario = U.idUsuario INNER JOIN PRODUCTO AS P
+        ON O.idProducto = P.idProducto
+    </select>
+    <resultMap id="idSelectTodosObligacionMap" type="obligacionBeanIbatis">
+        <id column="idObligacion" property="idObligacion"/>
+        <id column="fechaRegistroObligacion" property="fechaRegistroObligacion"/>
+        <id column="numeroCuotasObligacion" property="numeroCuotasObligacion"/>
+        <association property="socio" resultMap="socioMapper.idSelectTodosSocioMap"/>
+        <association property="usuario" resultMap="usuarioMapper.idSelectTodosUsuarioMap"/>
+        <association property="producto" resultMap="productoMapper.idSelectTodosProductoMap"/>
+    </resultMap>
 
 </mapper>
 

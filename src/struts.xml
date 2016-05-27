@@ -168,10 +168,18 @@
             <result name="error">error.jsp</result>
         </action>
 
-        <action name="generarObligacionCuotas" class="com.mycompany.ws.action.ObligacionAction"
-                method="generarObligacionCuotas">
-            <result name="success">registrarObligacion.jsp</result>
+        <action name="listarObligacion" class="com.mycompany.ws.action.ObligacionAction"
+                method="listaObligacion">
+            <result name="success">obligaciones.jsp</result>
             <result name="error">error.jsp</result>
         </action>
+
+        <action name="generarObligacionCuotas" class="com.mycompany.ws.action.ObligacionAction"
+                method="generarObligacionCuotas">
+            <result name="success" type="redirectAction">listarObligacion</result>
+            <result name="error">error.jsp</result>
+        </action>
+
+
     </package>
 </struts>

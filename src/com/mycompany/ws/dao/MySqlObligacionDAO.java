@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MySqlObligacionDAO implements ObligacionDAO {
@@ -60,6 +61,15 @@ public class MySqlObligacionDAO implements ObligacionDAO {
 
     @Override
     public List<ObligacionBean> obtenTodo() throws Exception {
-        return null;
+        List<ObligacionBean> lista = new ArrayList<>();
+        SqlSession session = sqlMapper.openSession();
+        try {
+            lista = session.selectList("idSelectTodosObligacion");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return lista;
     }
 }

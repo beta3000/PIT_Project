@@ -44,6 +44,14 @@
         WHERE idProducto = #{idProducto}
     </update>
 
+    <resultMap id="idSelectTodosProductoMap" type="productoBeanIbatis">
+        <id column="idProducto" property="idProducto"/>
+        <id column="nombreProducto" property="nombreProducto"/>
+        <id column="precioProducto" property="precioProducto"/>
+        <id column="descripcionProducto" property="descripcionProducto"/>
+        <id column="tasaProducto" property="tasaProducto"/>
+    </resultMap>
+
 </mapper>
 
 
