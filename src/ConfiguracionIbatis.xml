@@ -22,6 +22,10 @@
         <typeAlias
                 alias="productoBeanIbatis"
                 type="com.mycompany.ws.bean.ProductoBean"/>
+        <typeAlias alias="obligacionBeanIbatis"
+                   type="com.mycompany.ws.bean.ObligacionBean"/>
+        <typeAlias alias="cuotaBeanIbatis"
+                   type="com.mycompany.ws.bean.CuotaBean"/>
     </typeAliases>
 
     <environments default="development">
@@ -44,6 +48,7 @@
         <mapper resource="UsuarioMapper.xml"/>
         <mapper resource="SocioMapper.xml"/>
         <mapper resource="ProductoMapper.xml"/>
+        <mapper resource="ObligacionMapper.xml"/>
     </mappers>
 </configuration>
 

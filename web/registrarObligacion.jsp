@@ -125,6 +125,61 @@
                 </s:iterator>
             </table>
         </form>
+        <form action="generarObligacionCuotas.action" class="form-horizontal" name="" method="post">
+            <input type="hidden" name="obligacionBean.usuario.idUsuario" value="${sessionScope.usuario.idUsuario}"/>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    <button type="submit" class="btn btn-default btn-lg btn-block btn-primary">Generar</button>
+                </div>
+            </div>
+            <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label" for="selectProducto2">Producto</label>
+                <div class="col-sm-8">
+                    <select class="form-control" id="selectProducto2" name="productoBean.idProducto">
+                        <s:iterator value="listaProducto">
+                            <option
+                                    <s:if test="productoBean.idProducto == idProducto">
+                                        selected
+                                    </s:if>
+
+                                    value="<s:property value="idProducto"/>"><s:property
+                                    value="nombreProducto"/></option>
+                        </s:iterator>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label" for="selectSocio2">Socio</label>
+                <div class="col-sm-8">
+                    <select class="form-control" id="selectSocio2" name="socioBean.idSocio">
+                        <s:iterator value="listaSocio">
+                            <option
+                                    <s:if test="socioBean.idSocio == idSocio">
+                                        selected
+                                    </s:if>
+
+                                    value="<s:property value="idSocio"/>"><s:property value="apellidoSocio"/>,
+                                <s:property value="nombreSocio"/></option>
+                        </s:iterator>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-sm-6 hidden">
+                <label class="col-sm-4 control-label" for="selectCuotas2">Cuotas Mensuales</label>
+                <div class="col-sm-8">
+                    <select class="form-control" id="selectCuotas2" name="obligacionBean.numeroCuotasObligacion">
+                        <option value="12">12 Meses</option>
+                        <option
+                                <s:if test="obligacionBean.numeroCuotasObligacion == 18">
+                                    selected
+                                </s:if>
+
+                                value="18">18 Meses
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 <!-- FIN CONTENIDO -->

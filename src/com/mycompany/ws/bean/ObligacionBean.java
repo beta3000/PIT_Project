@@ -1,6 +1,8 @@
 package com.mycompany.ws.bean;
 
 
+import java.util.List;
+
 public class ObligacionBean {
     private int idObligacion;
     private String fechaRegistroObligacion;
@@ -8,6 +10,7 @@ public class ObligacionBean {
     private SocioBean socio;
     private UsuarioBean usuario;
     private ProductoBean producto;
+    private List<CuotaBean> cuotas;
 
     public ObligacionBean() {
     }
@@ -58,5 +61,13 @@ public class ObligacionBean {
 
     public void setProducto(ProductoBean producto) {
         this.producto = producto;
+    }
+
+    public List<CuotaBean> getCuotas() {
+        return cuotas;
+    }
+
+    public void setCuotas(List<CuotaBean> cuotas) {
+        this.cuotas = cuotas;
     }
 }

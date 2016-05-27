@@ -5,7 +5,7 @@ import com.mycompany.ws.bean.ObligacionBean;
 import java.util.List;
 
 public interface ObligacionService {
-    ObligacionBean registrarObligacion(ObligacionBean bean) throws Exception;
+    int registrarObligacion(ObligacionBean bean) throws Exception;
 
     int eliminarObligacion(int id) throws Exception;
 

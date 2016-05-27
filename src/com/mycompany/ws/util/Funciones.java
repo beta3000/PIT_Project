@@ -172,6 +172,48 @@ public class Funciones {
         return listaCuota;
     }
 
+    public static List<CuotaBean> generarCuotasSinId(int numeroCuotas, ProductoBean productoBean) {
+        List<CuotaBean> listaCuota = new ArrayList<>();
+        CuotaBean cuotaBean = null;
+        double tasaMensual = (Math.pow((1 + productoBean.getTasaProducto()), (1.0 / 12.0))) - 1;
+        double valorCuota = productoBean.getPrecioProducto() * ((tasaMensual * Math.pow((1 + tasaMensual), numeroCuotas)) / (Math.pow((1 + tasaMensual), numeroCuotas) - 1));
+        Integer numCuota;
+        double deuda = productoBean.getPrecioProducto();
+        double interes;
+        double capital;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String fecAct = sdf.format(new Date());
+
+        for (int i = 0; i < numeroCuotas; i++) {
+            cuotaBean = new CuotaBean();
+            interes = deuda * tasaMensual;
+            capital = valorCuota - interes;
+
+            //redondear valorCuota
+            valorCuota = redondear(valorCuota, 3);
+            capital = redondear(capital, 3);
+            interes = redondear(interes, 3);
+
+            cuotaBean.setFechaPagoCuota(fecAct);
+            cuotaBean.setMontoCuota(valorCuota);
+            cuotaBean.setCapitalCuota(capital);
+            cuotaBean.setInteresCuota(interes);
+
+            if (i == 0) {
+                cuotaBean.setEstadoCuota("Vencida");
+            } else {
+                cuotaBean.setEstadoCuota("Pendiente");
+            }
+
+            listaCuota.add(cuotaBean);
+
+            fecAct = subeUnMes(fecAct);
+            deuda = deuda - capital;
+        }
+        return listaCuota;
+    }
+
     public static String subeUnMes(String fecha) {
         String salida = "-1";
 

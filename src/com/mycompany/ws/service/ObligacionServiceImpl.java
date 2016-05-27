@@ -12,7 +12,7 @@ public class ObligacionServiceImpl implements ObligacionService {
     private ObligacionDAO dao = new MySqlObligacionDAO();
 
     @Override
-    public ObligacionBean registrarObligacion(ObligacionBean bean) throws Exception {
+    public int registrarObligacion(ObligacionBean bean) throws Exception {
         return dao.inserta(bean);
     }
 

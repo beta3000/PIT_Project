@@ -22,9 +22,9 @@ public class ObligacionAction extends ActionSupport {
     private List<SocioBean> listaSocio = new ArrayList<>();
     private SocioBean socioBean;
     private ObligacionBean obligacionBean;
+    private ObligacionService obligacionService;
     private CuotaService cuotaService;
     private List<CuotaBean> listaCuota = new ArrayList<>();
-
 
     public String cargarFormularioObligacionInicial() {
         productoService = new ProductoServiceImpl();
@@ -42,7 +42,6 @@ public class ObligacionAction extends ActionSupport {
     }
 
     public String cargarCuotasObligacion() {
-        cuotaService = new CuotaServiceImpl();
         productoService = new ProductoServiceImpl();
         socioService = new SocioServiceIml();
         System.out.println("Cuotas: " + obligacionBean.getNumeroCuotasObligacion());
@@ -54,6 +53,25 @@ public class ObligacionAction extends ActionSupport {
             listaCuota = Funciones.generarCuotas(obligacionBean.getNumeroCuotasObligacion(), productoBean);
             tasaProducto = "El Producto " + productoBean.getNombreProducto() +
                     " tiene una tasa anual del " + productoBean.getTasaProducto() + "% y tiene un costo de $" + productoBean.getPrecioProducto() + ".";
+            mensaje = SUCCESS;
+        } catch (Exception e) {
+            mensaje = ERROR;
+            e.printStackTrace();
+        }
+        return mensaje;
+    }
+
+    public String generarObligacionCuotas() {
+        productoService = new ProductoServiceImpl();
+        socioService = new SocioServiceIml();
+        obligacionService = new ObligacionServiceImpl();
+        try {
+            productoBean = productoService.buscarPorID(productoBean.getIdProducto());
+            obligacionBean.setProducto(productoBean);
+            obligacionBean.setSocio(socioBean);
+            obligacionBean.setFechaRegistroObligacion(Funciones.obtenerFechaActual());
+            obligacionBean.setCuotas(Funciones.generarCuotasSinId(obligacionBean.getNumeroCuotasObligacion(), productoBean));
+            obligacionService.registrarObligacion(obligacionBean);
             mensaje = SUCCESS;
         } catch (Exception e) {
             mensaje = ERROR;
@@ -117,4 +135,5 @@ public class ObligacionAction extends ActionSupport {
     public void setListaCuota(List<CuotaBean> listaCuota) {
         this.listaCuota = listaCuota;
     }
+
 }
